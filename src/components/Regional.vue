@@ -1,7 +1,7 @@
 <template>
   <div class="r-wrap">
     <div class="r-header">
-      <img src="../assets/regional/main.png" alt="" width="100%">
+      <img src="../assets/regional/main.jpg" alt="" width="100%">
       <span class="go-back" @click="goBack"></span>
     </div>
     <div class="r-d-content">
@@ -37,7 +37,7 @@
           </li>
           <li class="item-wrap" @click="toDetail(1)">
             <div class="item">
-              <img class="item-logo" src="../assets/regional/nanxun.png" alt="">
+              <img class="item-logo" src="../assets/regional/nanxun.jpg" alt="">
               <div class="item-content">
                 <span class="item-title">南浔产业新城</span>
                 <span class="item-detail" style="margin-top: 10px">
@@ -57,7 +57,7 @@
           </li>
           <li class="item-wrap" @click="toDetail(2)">
             <div class="item">
-              <img class="item-logo" src="../assets/regional/deqing.png" alt="">
+              <img class="item-logo" src="../assets/regional/deqing.jpg" alt="">
               <div class="item-content">
                 <span class="item-title">德清产业新城</span>
                 <span class="item-detail" style="margin-top: 10px">
@@ -75,7 +75,7 @@
           </li>
           <li class="item-wrap" @click="toDetail(3)">
             <div class="item">
-              <img class="item-logo" src="../assets/regional/nanhu.jpg" alt="">
+              <img class="item-logo" src="../assets/regional/nanhu.png" alt="">
               <div class="item-content">
                 <span class="item-title">南湖产业新城</span>
                 <span class="item-detail" style="margin-top: 10px">

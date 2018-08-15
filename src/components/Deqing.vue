@@ -1,7 +1,7 @@
 <template>
   <div class="j-wrap" :style="{backgroundImage:'url('+require('../assets/bg.png')+')'}">
     <div class="h-wrap">
-      <img src="../assets/deqing/main.png" alt="" width="100%">
+      <img src="../assets/deqing/main.jpg" alt="" width="100%">
       <span class="go-back" @click="goBack"></span>
     </div>
     <div class="area-wrap">
@@ -38,7 +38,7 @@
       </div>
       <swiper :options="swiperOption" style="margin: 0 auto; margin-left: 15px;margin-right: 15px;">
         <div class="swiper-slide" v-for="banner in banners">
-          <img :src="banner">
+          <img :src="banner" width="100%">
         </div>
         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
