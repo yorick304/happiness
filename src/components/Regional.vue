@@ -1,7 +1,7 @@
 <template>
   <div class="r-wrap">
     <div class="r-header">
-      <img src="../assets/regional/main.jpg" alt="" width="100%">
+      <img src="//si.geilicdn.com/resource-5a180000016542d865e10a026860_750_352.jpg" alt="" width="100%">
       <span class="go-back" @click="goBack"></span>
     </div>
     <div class="r-d-content">
@@ -15,11 +15,11 @@
         杭州都市圈是全国最有竞争力的城市群，先进制造业和现代服务业发达。华夏幸福终点在嘉善、南浔、德清、南湖等地打造产业新城。
       </p>
       <div class="r-d-content-cluster">
-        <img class="cluster-map" src="../assets/list.png" width="95%" alt="">
+        <img class="cluster-map" src="//si.geilicdn.com/resource-4bfa0000016542da7a4f0a02853e-unadjust_642_505.png" width="95%" alt="">
         <ul class="items">
           <li class="item-wrap" @click="toDetail(0)">
             <div class="item">
-              <img class="item-logo" src="../assets/regional/jiashan.jpg" alt="">
+              <img class="item-logo" src="//si.geilicdn.com/resource-5a8e0000016542d8a3100a026860_312_180.jpg" alt="">
               <div class="item-content">
                 <span class="item-title">嘉善产业新城</span>
                 <span class="item-detail" style="margin-top: 10px">
@@ -37,13 +37,13 @@
           </li>
           <li class="item-wrap" @click="toDetail(1)">
             <div class="item">
-              <img class="item-logo" src="../assets/regional/nanxun.jpg" alt="">
+              <img class="item-logo" src="//si.geilicdn.com/resource-5bd30000016542d933ad0a026860_312_180.jpg" alt="">
               <div class="item-content">
                 <span class="item-title">南浔产业新城</span>
                 <span class="item-detail" style="margin-top: 10px">
                   机器人
                   <span></span>
-                  生物制药
+                  生物医药
                 </span>
                 <span class="item-detail">
                   新能源汽车及零部件
@@ -57,7 +57,7 @@
           </li>
           <li class="item-wrap" @click="toDetail(2)">
             <div class="item">
-              <img class="item-logo" src="../assets/regional/deqing.jpg" alt="">
+              <img class="item-logo" src="//si.geilicdn.com/resource-49c10000016542d979d50a028841_312_180.jpg" alt="">
               <div class="item-content">
                 <span class="item-title">德清产业新城</span>
                 <span class="item-detail" style="margin-top: 10px">
@@ -75,7 +75,7 @@
           </li>
           <li class="item-wrap" @click="toDetail(3)">
             <div class="item">
-              <img class="item-logo" src="../assets/regional/nanhu.png" alt="">
+              <img class="item-logo" src="//si.geilicdn.com/resource-4a6f0000016542d9c1f60a028841_312_180.jpg" alt="">
               <div class="item-content">
                 <span class="item-title">南湖产业新城</span>
                 <span class="item-detail" style="margin-top: 10px">

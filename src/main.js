@@ -3,9 +3,10 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import {Lazyload} from 'wdui'
 
 Vue.config.productionTip = false
-
+Vue.use(Lazyload)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

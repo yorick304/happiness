@@ -1,7 +1,7 @@
 <template>
   <div class="j-wrap" :style="{backgroundImage:'url('+require('../assets/bg.png')+')'}">
     <div class="h-wrap">
-      <img src="../assets/nanhu/main.jpg" alt="" width="100%">
+      <img src="//si.geilicdn.com/resource-2a690000016542cb3b540a02853e_690_420.jpg" alt="" width="100%">
       <span class="go-back" @click="goBack"></span>
     </div>
     <div class="area-wrap">
@@ -11,7 +11,7 @@
       <div class="area-title-tip">
         区位优势
       </div>
-      <img class="area-map" src="../assets/nanhu/nanhuMap.png" width="92%" alt="">
+      <img class="area-map" src="//si.geilicdn.com/resource-2ae50000016542cb746e0a02853e-unadjust_690_690.png" width="92%" alt="">
       <div class="area-str-wrap">
         <img src="../assets/common/right.png" alt="">
         <p class="area-str">
@@ -31,14 +31,14 @@
         <span class="transportation-str"><em>公路：</em>沪杭高速、杭浦高速、申嘉湖高速、杭州湾跨海大桥等“三横三纵三桥”立体交通网络贯穿</span>
         <span class="transportation-str"><em>机场：</em>距上海虹桥机场1小时车程、距杭州萧山机场1小时15分钟车程、距上海浦东机场1.5小时车程</span>
         <span class="transportation-str"><em>高铁：</em>沪杭高铁18分钟到松江南站，28分钟到上海虹桥站，23分钟抵达杭州站</span>
-        <span class="transportation-str"><em>港口：</em>距嘉兴港40分钟车程、距大小洋山港约1小时车程、距上海港1.5小时车程、距宁波港2小时车程</span>
+        <span class="transportation-str"><em>水路：</em>距嘉兴港40分钟车程、距大小洋山港约1小时车程、距上海港1.5小时车程、距宁波港2小时车程</span>
       </div>
       <div class="area-title-tip">
         产业环境
       </div>
       <swiper :options="swiperOption" style="margin: 0 auto; margin-left: 15px;margin-right: 15px;">
         <div class="swiper-slide" v-for="banner in banners">
-          <img :src="banner">
+          <img v-lazy="banner" width="100%">
         </div>
         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
@@ -211,7 +211,7 @@
       .transportation {
         font-size: 12px;/*no*/
         text-align: justify;
-        margin-left: 30px;
+        margin: 0 30px;
         .transportation-str {
           display: block;
           em {
@@ -242,7 +242,7 @@
     },
     data() {
       return {
-        banners: [require('../assets/nanhu/1.png'),require('../assets/nanhu/2.png'),require('../assets/nanhu/3.png'),require('../assets/nanhu/4.png')],
+        banners: ['//si.geilicdn.com/resource-39d60000016542ca05c90a02685e_690_400.jpg', '//si.geilicdn.com/resource-3b700000016542ca71340a026860_690_400.jpg', '//si.geilicdn.com/resource-3bd60000016542caa4240a026860_690_400.jpg', '//si.geilicdn.com/resource-29a00000016542cae5bc0a02853e_690_400.jpg'],
         swiperOption: {
           spaceBetween: 30,
             autoplay: {

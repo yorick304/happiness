@@ -1,7 +1,7 @@
 <template>
   <div class="j-wrap" :style="{backgroundImage:'url('+require('../assets/bg.png')+')'}">
     <div class="h-wrap">
-      <img src="../assets/deqing/main.jpg" alt="" width="100%">
+      <img src="//si.geilicdn.com/resource-259a0000016542bfd6ae0a026860_690_420.jpg" alt="" width="100%">
       <span class="go-back" @click="goBack"></span>
     </div>
     <div class="area-wrap">
@@ -11,15 +11,15 @@
       <div class="area-title-tip">
         区位优势
       </div>
-      <img class="area-map" src="../assets/deqing/deqingMap.png" width="92%" alt="">
+      <img class="area-map" src="//si.geilicdn.com/resource-24030000016542bf83a80a02685e-unadjust_690_690.png" width="92%" alt="">
       <div class="area-str-wrap">
-        <img src="../assets/common/right.png" alt="">
+        <img src="//si.geilicdn.com/resource-295b0000016542c1a1800a026860-unadjust_22_20.png" alt="">
         <p class="area-str">
         德清位于江浙沪“黄金三角”，与杭州余杭区仅一河之隔，以“接沪融杭”为城市发展战略。总面积936平方公里，人口44万人，2017年地区生产总值470.2亿元，是全国百强县之一。
       </p>
       </div>
       <div class="area-str-wrap">
-        <img src="../assets/common/right.png" alt="">
+        <img src="//si.geilicdn.com/resource-295b0000016542c1a1800a026860-unadjust_22_20.png" alt="">
         <p class="area-str">
           德清产业新城位于德清县雷甸镇，是德清乃至湖州市融杭第一站，区域面积13平方公里。
         </p>
@@ -31,37 +31,37 @@
         <span class="transportation-str"><em>公路：</em>杭宁高速、申嘉湖高速穿境而过，经304省道1小时可抵达杭州</span>
         <span class="transportation-str"><em>机场：</em>距杭州萧山国际机场40分钟车程</span>
         <span class="transportation-str"><em>高铁：</em>杭宁高铁设德清站，15分钟可到杭州；规划沪苏湖高铁，30分钟可到上海</span>
-        <span class="transportation-str"><em>港口：</em>京杭运河、杭湖锡线航道穿境而过，拥有10万吨码头和5万吨码头各1个</span>
+        <span class="transportation-str"><em>水路：</em>京杭运河、杭湖锡线航道穿境而过，拥有10万吨码头和5万吨码头各1个</span>
       </div>
       <div class="area-title-tip">
         产业环境
       </div>
       <swiper :options="swiperOption" style="margin: 0 auto; margin-left: 15px;margin-right: 15px;">
         <div class="swiper-slide" v-for="banner in banners">
-          <img :src="banner" width="100%">
+          <img v-lazy="banner" width="100%">
         </div>
         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
       <div class="area-str-wrap">
-        <img src="../assets/common/right.png" alt="">
+        <img src="//si.geilicdn.com/resource-295b0000016542c1a1800a026860-unadjust_22_20.png" alt="">
         <p class="area-str">
           德清属杭州都市圈，距杭州中心仅30公里，高铁10分钟直达，是杭州产业外溢的首选地。
         </p>
       </div>
       <div class="area-str-wrap">
-        <img src="../assets/common/right.png" alt="">
+        <img src="//si.geilicdn.com/resource-295b0000016542c1a1800a026860-unadjust_22_20.png" alt="">
         <p class="area-str">
           德清是杭州智能制造的主要承接地。杭州主要发展信息经济，大量制造业转向德清；浙江省“机器换人”推动智能制造装备市场需求不断扩大，德清有临杭优势和港口优势，熟练技术工人多，机电工业基础好，具备发展智能工控产业的优势。
         </p>
       </div>
       <div class="area-str-wrap">
-        <img src="../assets/common/right.png" alt="">
+        <img src="//si.geilicdn.com/resource-295b0000016542c1a1800a026860-unadjust_22_20.png" alt="">
         <p class="area-str">
           德清也是杭州汽车零部件产业的承接地。杭州都市圈是中国重要的汽车产业基地，聚集了吉利、广汽、福特、合众等一批整车厂，以及大量汽车零部件厂商。杭州市产业升级推动汽车零部件产业向外转移，德清是主要承接地。
         </p>
       </div>
       <div class="area-str-wrap">
-        <img src="../assets/common/right.png" alt="">
+        <img src="//si.geilicdn.com/resource-295b0000016542c1a1800a026860-unadjust_22_20.png" alt="">
         <p class="area-str">
           德清是浙江省规划的四个通航小镇之一。德清通航机场距杭州30公里，毗邻太湖、莫干山、千岛湖等旅游景区，拥有丰富的空中旅游资源。长三角居民消费水平居全国之首，通航培训、旅游、商务、物流等市场潜力很大。
         </p>
@@ -70,7 +70,7 @@
         产业集群
       </div>
       <div class="area-str-wrap">
-        <img src="../assets/common/right.png" alt="">
+        <img src="//si.geilicdn.com/resource-295b0000016542c1a1800a026860-unadjust_22_20.png" alt="">
         <p class="area-str">
           华夏幸福坚持“产业优先”的核心策略，在德清产业新城重点发展工业智能控制、通用航空、汽车关键零部件三大产业集群。
         </p>
@@ -218,7 +218,7 @@
       .transportation {
         font-size: 12px;/*no*/
         text-align: justify;
-        margin-left: 30px;
+        margin: 0 30px;
         .transportation-str {
           display: block;
           em {
@@ -249,7 +249,7 @@
     },
     data() {
       return {
-        banners: [require('../assets/deqing/1.jpg'),require('../assets/deqing/2.jpg'),require('../assets/deqing/3.jpg'),require('../assets/deqing/4.jpg')],
+        banners: ['//si.geilicdn.com/resource-0f690000016542b5423e0a026860_690_400.jpg', '//si.geilicdn.com/resource-11520000016542b622e40a026860_690_400.jpg', '//si.geilicdn.com/resource-7f490000016542b68c440a028841_690_400.jpg', '//si.geilicdn.com/resource-00060000016542b6f57f0a02853e_690_400.jpg'],
         swiperOption: {
           spaceBetween: 30,
             autoplay: {

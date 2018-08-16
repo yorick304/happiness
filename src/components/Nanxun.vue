@@ -1,7 +1,7 @@
 <template>
   <div class="j-wrap" :style="{backgroundImage:'url('+require('../assets/bg.png')+')'}">
     <div class="h-wrap">
-      <img src="../assets/nanxun/main.jpg" alt="" width="100%">
+      <img src="//si.geilicdn.com/resource-432f0000016542ce61fe0a02685e_690_420.jpg" alt="" width="100%">
       <span class="go-back" @click="goBack"></span>
     </div>
     <div class="area-wrap">
@@ -11,7 +11,7 @@
       <div class="area-title-tip">
         区位优势
       </div>
-      <img class="area-map" src="../assets/nanxun/nanxunMap.png" width="92%" alt="">
+      <img class="area-map" src="//si.geilicdn.com/resource-44a90000016542ceb6bf0a026860-unadjust_690_690.png" width="92%" alt="">
       <div class="area-str-wrap">
         <img src="../assets/common/right.png" alt="">
         <p class="area-str">
@@ -31,14 +31,14 @@
         <span class="transportation-str"><em>公路：</em>沪渝、申嘉湖、练杭3条高速及318国道贯穿全境</span>
         <span class="transportation-str"><em>机场：</em>距杭州萧山国际机场、上海虹桥国际机场1.5小时车程</span>
         <span class="transportation-str"><em>高铁：</em>沪苏湖高铁（在建）设南浔站，30分钟抵达上海虹桥</span>
-        <span class="transportation-str"><em>港口：</em>「京杭运河、长湖申航道2条千吨级航道穿境而过」</span>
+        <span class="transportation-str"><em>水路：</em>京杭运河、长湖申航道2条千吨级航道穿境而过</span>
       </div>
       <div class="area-title-tip">
         产业环境
       </div>
       <swiper :options="swiperOption" style="margin: 0 auto; margin-left: 15px;margin-right: 15px;">
         <div class="swiper-slide" v-for="banner in banners">
-          <img :src="banner" width="100%">
+          <img v-lazy="banner" width="100%">
         </div>
         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
@@ -226,7 +226,7 @@
       .transportation {
         font-size: 12px;/*no*/
         text-align: justify;
-        margin-left: 30px;
+        margin: 0 30px;
         .transportation-str {
           display: block;
           em {
@@ -257,7 +257,7 @@
     },
     data() {
       return {
-        banners: [require('../assets/nanxun/1.jpg'),require('../assets/nanxun/2.jpg'),require('../assets/nanxun/3.jpg'),require('../assets/nanxun/4.jpg')],
+        banners: ['//si.geilicdn.com/resource-2e6c0000016542cd1ccb0a02853e_690_400.jpg', '//si.geilicdn.com/resource-2f610000016542cd8cee0a02853e_690_400.jpg', '//si.geilicdn.com/resource-429f0000016542cdca8d0a026860_690_400.jpg', '//si.geilicdn.com/resource-42680000016542ce06b90a02685e_690_400.jpg'],
         swiperOption: {
           spaceBetween: 30,
             autoplay: {
