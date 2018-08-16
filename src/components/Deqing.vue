@@ -1,5 +1,5 @@
 <template>
-  <div class="j-wrap" :style="{backgroundImage:'url('+require('../assets/bg.png')+')'}">
+  <div class="j-wrap" :style="{backgroundImage:'url('+require('../assets/bg2.png')+')'}">
     <div class="h-wrap">
       <img src="//si.geilicdn.com/resource-259a0000016542bfd6ae0a026860_690_420.jpg" alt="" width="100%">
       <span class="go-back" @click="goBack"></span>
@@ -77,21 +77,21 @@
       </div>
       <div class="industry-wrap">
         <div class="industry-item">
-          <img class="industry-left" src="../assets/robot.png" height="57px" width="57px"/>
+          <img class="industry-left" src="//si.geilicdn.com/resource-0f4300000165433202370a028841-unadjust_116_116.png" height="57px" width="57px"/>
           <div class="industry-right">
             <span class="industry-title">工业智能控制</span>
             <span class="industry-str">面向长三角产业升级，服务智能制造，重点发展工控软硬件、工业云、工业物联网、智能仪器仪表等新兴产业，形成智能工控特色产业集群。</span>
           </div>
         </div>
         <div class="industry-item">
-          <img class="industry-left" src="../assets/energy.png" height="57px" width="57px"/>
+          <img class="industry-left" src="//si.geilicdn.com/resource-0ebd000001654331bd3a0a028841-unadjust_116_116.png" height="57px" width="57px"/>
           <div class="industry-right">
             <span class="industry-title">通用航空</span>
             <span class="industry-str">用足德清通航机场资源，拓展通航应用，重点发展通航服务和通航设备制造，打造服务长三角的通航产业集群。</span>
           </div>
         </div>
         <div class="industry-item">
-          <img class="industry-left" src="../assets/equipment.png" height="57px" width="57px"/>
+          <img class="industry-left" src="//si.geilicdn.com/resource-0cf6000001654330e0c70a02853e-unadjust_116_116.png" height="57px" width="57px"/>
           <div class="industry-right">
             <span class="industry-title">汽车关键零部件</span>
             <span class="industry-str">
@@ -192,8 +192,13 @@
         padding: 70px 30px 140px;
         .industry-item {
           display: flex;
+          flex-direction: row;
           .industry-left {
+            display: inline-block;
             flex: 1;
+            flex-shrink: 0;
+            min-width: 114px;
+            min-height: 114px;
           }
           &:not(:first-child){
             margin-top: 90px;
@@ -211,6 +216,7 @@
               margin-top: 20px;
               color: #666666;
               text-align: justify;
+              display: block;
             }
           }
         }

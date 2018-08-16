@@ -1,5 +1,5 @@
 <template>
-  <div class="j-wrap" :style="{backgroundImage:'url('+require('../assets/bg.png')+')'}">
+  <div class="j-wrap" :style="{backgroundImage:'url('+require('../assets/bg2.png')+')'}">
     <div class="h-wrap">
       <img src="//si.geilicdn.com/resource-32ce0000016542c6c9410a02685e_690_420.jpg" alt="" width="100%">
       <span class="go-back" @click="goBack"></span>
@@ -38,7 +38,7 @@
       </div>
       <swiper :options="swiperOption" style="margin: 0 auto; margin-left: 15px;margin-right: 15px;">
         <div class="swiper-slide" v-for="banner in banners">
-          <img v-lazy="banner">
+          <img v-lazy="banner" width="100%">
         </div>
         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
@@ -71,21 +71,21 @@
       </div>
       <div class="industry-wrap">
         <div class="industry-item">
-          <img class="industry-left" src="../assets/robot.png" height="57px" width="57px"/>
+          <img class="industry-left" src="//si.geilicdn.com/resource-23a8000001654332ceef0a026860-unadjust_116_116.png" height="57px" width="57px"/>
           <div class="industry-right">
             <span class="industry-title">科技创新</span>
             <span class="industry-str">以发展科技研发平台为抓手，引入国家重点实验室和企业技术中心，导入高技术含量、高附加值的人工智能、智能制造技术及互联网技术成果，营造技术产业化生态环境，打造集科技研发、成果转化、科技服务为一体的产业集群。</span>
           </div>
         </div>
         <div class="industry-item">
-          <img class="industry-left" src="../assets/energy.png" height="57px" width="57px"/>
+          <img class="industry-left" src="//si.geilicdn.com/resource-245500000165433322a50a026860-unadjust_116_116.png" height="57px" width="57px"/>
           <div class="industry-right">
             <span class="industry-title">智能网联车</span>
             <span class="industry-str">依托公共测试平台，聚集技术、人才、资本等产业资源，重点引入智能网联车各系统模块生产企业和整车集成企业，完善产业链配套体系，在全国率先形成面向未来的智能网联车产业集群。</span>
           </div>
         </div>
         <div class="industry-item">
-          <img class="industry-left" src="../assets/equipment.png" height="57px" width="57px"/>
+          <img class="industry-left" src="//si.geilicdn.com/resource-122000000165433363c50a02853e-unadjust_116_116.png" height="57px" width="57px"/>
           <div class="industry-right">
             <span class="industry-title">金融商贸</span>
             <span class="industry-str">
@@ -187,6 +187,8 @@
           display: flex;
           .industry-left {
             flex: 1;
+            min-width: 114px;
+            min-height: 114px;
           }
           &:not(:first-child){
             margin-top: 90px;

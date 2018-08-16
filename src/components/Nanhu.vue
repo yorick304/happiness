@@ -1,5 +1,5 @@
 <template>
-  <div class="j-wrap" :style="{backgroundImage:'url('+require('../assets/bg.png')+')'}">
+  <div class="j-wrap" :style="{backgroundImage:'url('+require('../assets/bg2.png')+')'}">
     <div class="h-wrap">
       <img src="//si.geilicdn.com/resource-2a690000016542cb3b540a02853e_690_420.jpg" alt="" width="100%">
       <span class="go-back" @click="goBack"></span>
@@ -71,21 +71,21 @@
       </div>
       <div class="industry-wrap">
         <div class="industry-item">
-          <img class="industry-left" src="../assets/robot.png" height="57px" width="57px"/>
+          <img class="industry-left" src="//si.geilicdn.com/resource-139800000165433417ff0a028841-unadjust_116_116.png" height="57px" width="57px"/>
           <div class="industry-right">
             <span class="industry-title">专用装备</span>
             <span class="industry-str">重点引进轻工装备、物流装备、工程机械制造业，逐步发展智能制造装备，形成面向长三角产业升级的智能制造装备业集群，打造沪杭走廊智能制造示范基地。</span>
           </div>
         </div>
         <div class="industry-item">
-          <img class="industry-left" src="../assets/energy.png" height="57px" width="57px"/>
+          <img class="industry-left" src="//si.geilicdn.com/resource-14380000016543345ff60a02853e-unadjust_116_116.png" height="57px" width="57px"/>
           <div class="industry-right">
             <span class="industry-title">智能终端</span>
             <span class="industry-str">主要引进工业物联网、智能传感、车载终端、智能家居、智能穿戴等新型终端龙头企业，带动产业链上下游企业集聚，发展成为专业生产新型智能终端的产业集群。</span>
           </div>
         </div>
         <div class="industry-item">
-          <img class="industry-left" src="../assets/equipment.png" height="57px" width="57px"/>
+          <img class="industry-left" src="//si.geilicdn.com/resource-277f000001654334a9c00a026860-unadjust_116_116.png" height="57px" width="57px"/>
           <div class="industry-right">
             <span class="industry-title">医疗器械</span>
             <span class="industry-str">
@@ -187,6 +187,8 @@
           display: flex;
           .industry-left {
             flex: 1;
+            min-width: 114px;
+            min-height: 114px;
           }
           &:not(:first-child){
             margin-top: 90px;
