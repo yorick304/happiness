@@ -11,12 +11,14 @@ export default {
   created() {
     Store.fetchSignture({ url: 'http://fly.viicb.com/wechat/api/service/getWeChatSignature', param: {link: window.location.href.split('#')[0] }}).then((res) => {
       console.log(res)
+      let data = res.data
+      let wxAccountInfo = data && data.wxAccountInfo
       wx.config({
         debug: false,
-        appId: 'wxa2c416de84300ee5',
-        timestamp: res.timestamp,
-        nonceStr: res.nonceStr,
-        signature: res.signature,
+        appId: wxAccountInfo && wxAccountInfo.appId,
+        timestamp: wxAccountInfo && wxAccountInfo.timestamp,
+        nonceStr: wxAccountInfo && wxAccountInfo.nonceStr,
+        signature: wxAccountInfo && wxAccountInfo.signature,
         jsApiList: [
           'checkJsApi',
           'onMenuShareTimeline',
@@ -30,9 +32,9 @@ export default {
           link: window.location.href,
           imgUrl: 'https://si.geilicdn.com/resource-211c0000016546f8a23e0a02853e-unadjust_100_100.png'
         };
-        wx.onMenuShareAppMessage(shareData);
-        wx.onMenuShareTimeline(shareData);
-        wx.onMenuShareQQ(shareData);
+        wx.onMenuShareAppMessage(shareData)
+        wx.onMenuShareTimeline(shareData)
+        wx.onMenuShareQQ(shareData)
       });
     })
   }
