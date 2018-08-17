@@ -31,7 +31,7 @@
         <span class="transportation-str"><em>公路：</em>沪杭高速、杭浦高速、申嘉湖高速、杭州湾跨海大桥等“三横三纵三桥”立体交通网络贯穿</span>
         <span class="transportation-str"><em>机场：</em>距上海虹桥机场1小时车程、距杭州萧山机场1小时15分钟车程、距上海浦东机场1.5小时车程</span>
         <span class="transportation-str"><em>高铁：</em>沪杭高铁18分钟到松江南站，28分钟到上海虹桥站，23分钟抵达杭州站</span>
-        <span class="transportation-str"><em>水路：</em>距嘉兴港40分钟车程、距大小洋山港约1小时车程、距上海港1.5小时车程、距宁波港2小时车程</span>
+        <span class="transportation-str"><em>港口：</em>距嘉兴港40分钟车程、距大小洋山港约1小时车程、距上海港1.5小时车程、距宁波港2小时车程</span>
       </div>
       <div class="area-title-tip">
         产业环境

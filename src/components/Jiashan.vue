@@ -31,7 +31,7 @@
         <span class="transportation-str"><em>公路：</em>沪杭、申嘉湖、苏通3条高速公路及国道320、318穿境而过，15分钟之内上高速，通达全国</span>
         <span class="transportation-str"><em>机场：</em>距上海虹桥机场、杭州萧山机场约1小时车程，距上海浦东机场1.5小时车程，距宁波栎社国际机场2小时车程</span>
         <span class="transportation-str"><em>高铁：</em>沪杭高铁设嘉善南站，20分钟直达上海、30分钟直达杭州</span>
-        <span class="transportation-str"><em>水路：</em>距乍浦（嘉兴）港40分钟车程，距洋山港、上海港、宁波港约1.5小时车程</span>
+        <span class="transportation-str"><em>港口：</em>距乍浦（嘉兴）港40分钟车程，距洋山港、上海港、宁波港约1.5小时车程</span>
       </div>
       <div class="area-title-tip">
         产业环境
