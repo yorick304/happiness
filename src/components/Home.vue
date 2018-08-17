@@ -3,7 +3,7 @@
     <!-- <img src="../assets/video.jpg" alt="" style="width: 100%;
     position: absolute;" v-if="show"> -->
     <video class="video" controls="controls" @click="start">
-      <source src="../assets/common/info.mp4" type="video/mp4">
+      <source src="../assets/common/info2.mp4" type="video/mp4">
     </video>
     <div class="bottom">
       <img src="../assets/common/index.png" width="100%" alt="">
