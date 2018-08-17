@@ -5,8 +5,36 @@
 </template>
 
 <script>
+import {Store} from './store/index.js'
 export default {
-  name: 'App'
+  name: 'App',
+  created() {
+    Store.fetchSignture({ url: 'http://fly.viicb.com/wechat/api/service/getWeChatSignature', param: {url: window.location.href.split('#')[0] }}).then((res) => {
+      wx.config({
+        debug: false,
+        appId: 'wxa2c416de84300ee5',
+        timestamp: res.timestamp,
+        nonceStr: res.nonceStr,
+        signature: res.signature,
+        jsApiList: [
+          'checkJsApi',
+          'onMenuShareTimeline',
+          'onMenuShareAppMessage',
+          'onMenuShareQQ'
+        ]
+      }); 
+      wx.ready(function () {
+        var shareData = {
+          title: '杭州区域产业新城',
+          link: window.location.href,
+          imgUrl: 'https://si.geilicdn.com/resource-211c0000016546f8a23e0a02853e-unadjust_100_100.png'
+        };
+        wx.onMenuShareAppMessage(shareData);
+        wx.onMenuShareTimeline(shareData);
+        wx.onMenuShareQQ(shareData);
+      });
+    })
+  }
 }
 </script>
 
