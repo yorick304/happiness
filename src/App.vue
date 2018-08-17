@@ -9,7 +9,8 @@ import {Store} from './store/index.js'
 export default {
   name: 'App',
   created() {
-    Store.fetchSignture({ url: 'http://fly.viicb.com/wechat/api/service/getWeChatSignature', param: {url: window.location.href.split('#')[0] }}).then((res) => {
+    Store.fetchSignture({ url: 'http://fly.viicb.com/wechat/api/service/getWeChatSignature', param: {link: window.location.href.split('#')[0] }}).then((res) => {
+      console.log(res)
       wx.config({
         debug: false,
         appId: 'wxa2c416de84300ee5',

@@ -8,7 +8,7 @@
     <div class="bottom">
       <img src="../assets/common/index.png" width="100%" alt="">
       <div class="button" @click="toRegional">
-        杭州区域产业新城
+        <span style="flex: auto;">杭州区域产业新城</span>
       </div>
     </div>
   </div>
@@ -46,15 +46,14 @@
         transform: translate(-50%,-50%);
         z-index: 9;
         padding: 0 40px;
+        display: flex;
+        align-items: center;
         &:after {
           content: "";
           width: 8px;/*no*/
           height: 8px;/*no*/
           border-right: 2px solid #ffffff;/*no*/
           border-bottom: 2px solid #ffffff;/*no*/
-          top: 41%;
-          right: 18px;/*no*/
-          position: absolute;
           transform: rotate(-45deg);
         }
       }
