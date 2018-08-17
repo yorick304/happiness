@@ -11,7 +11,7 @@
       <div class="area-title-tip">
         区位优势
       </div>
-      <img class="area-map" src="//si.geilicdn.com/resource-24030000016542bf83a80a02685e-unadjust_690_690.png" width="92%" alt="">
+      <img class="area-map" src="//si.geilicdn.com/resource-4f10000001654666ee010a028841-unadjust_690_690.png" width="92%" alt="">
       <div class="area-str-wrap">
         <img src="//si.geilicdn.com/resource-295b0000016542c1a1800a026860-unadjust_22_20.png" alt="">
         <p class="area-str">
@@ -197,8 +197,8 @@
             display: inline-block;
             flex: 1;
             flex-shrink: 0;
-            min-width: 114px;
-            min-height: 114px;
+            min-width: 57px;/*no*/
+            min-height: 57px;/*no*/
           }
           &:not(:first-child){
             margin-top: 90px;
@@ -269,6 +269,10 @@
           }
         }
       }
+    },
+    created() {
+      document.body.scrollTop = 0
+      document.documentElement.scrollTop = 0
     },
     methods: {
       goBack() {

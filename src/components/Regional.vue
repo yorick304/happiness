@@ -270,6 +270,10 @@
 <script>
   export default {
     name: 'Regional',
+    created() {
+      document.body.scrollTop = 0
+      document.documentElement.scrollTop = 0
+    },
     methods: {
       goBack() {
         this.$router.push({

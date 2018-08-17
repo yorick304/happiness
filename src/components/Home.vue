@@ -2,7 +2,7 @@
   <div class="h-wrap">
     <!-- <img src="../assets/video.jpg" alt="" style="width: 100%;
     position: absolute;" v-if="show"> -->
-    <video class="video" controls="controls" @click="start">
+    <video class="video" controls="controls" poster="http://si.geilicdn.com/resource-220b00000165465240420a02853e_750_422.jpg">
       <source src="../assets/common/info2.mp4" type="video/mp4">
     </video>
     <div class="bottom">
@@ -20,7 +20,7 @@
     flex-direction: column;
     .video {
       width: 100%;
-      height: 310px;/*no*/
+      height: 210px;/*no*/
     }
     .h-tip {
       margin-left: 40px;
@@ -68,6 +68,10 @@
       return {
         show: true
       }
+    },
+    created() {
+      document.body.scrollTop = 0
+      document.documentElement.scrollTop = 0
     },
     methods: {
       toRegional() {

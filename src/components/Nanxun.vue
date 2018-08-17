@@ -202,8 +202,8 @@
           display: flex;
           .industry-left {
             flex: 1;
-            min-width: 114px;
-            min-height: 114px;
+            min-width: 57px;/*no*/
+            min-height: 57px;/*no*/
           }
           &:not(:first-child){
             margin-top: 90px;
@@ -273,6 +273,10 @@
           }
         }
       }
+    },
+    created() {
+      document.body.scrollTop = 0
+      document.documentElement.scrollTop = 0
     },
     methods: {
       goBack() {
