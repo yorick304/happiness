@@ -1,7 +1,7 @@
 <template>
   <div class="h-wrap">
-    <img src="../assets/video.jpg" alt="" style="width: 100%;
-    position: absolute;" v-if="show">
+    <!-- <img src="../assets/video.jpg" alt="" style="width: 100%;
+    position: absolute;" v-if="show"> -->
     <video class="video" controls="controls" @click="start">
       <source src="../assets/common/info.mp4" type="video/mp4">
     </video>
