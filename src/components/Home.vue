@@ -8,7 +8,7 @@
     <div class="bottom">
       <img src="../assets/common/index.png" width="100%" alt="">
       <div class="button" @click="toRegional">
-        杭州区域经济产业新城
+        杭州区域产业新城
       </div>
     </div>
   </div>

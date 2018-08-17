@@ -15,7 +15,7 @@
         杭州都市圈是全国最有竞争力的城市群，先进制造业和现代服务业发达。华夏幸福终点在嘉善、南浔、德清、南湖等地打造产业新城。
       </p>
       <div class="r-d-content-cluster">
-        <img class="cluster-map" src="//si.geilicdn.com/resource-4bfa0000016542da7a4f0a02853e-unadjust_642_505.png" width="95%" alt="">
+        <img class="cluster-map" src="//si.geilicdn.com/resource-174200000165467f30f40a02685e-unadjust_642_506.png" width="95%" alt="">
         <ul class="items">
           <li class="item-wrap" @click="toDetail(0)">
             <div class="item">
