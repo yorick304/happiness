@@ -14,12 +14,13 @@ export default {
         console.log(res)
         let data = res.data
         let wxAccountInfo = data && data.wxAccountInfo
+        console.log(wxAccountInfo)
         wx.config({
           debug: false,
-          appId: wxAccountInfo && wxAccountInfo.appId,
-          timestamp: wxAccountInfo && wxAccountInfo.timestamp,
-          nonceStr: wxAccountInfo && wxAccountInfo.nonceStr,
-          signature: wxAccountInfo && wxAccountInfo.signature,
+          appId: wxAccountInfo.appId,
+          timestamp: wxAccountInfo.timestamp,
+          nonceStr: wxAccountInfo.nonceStr,
+          signature: wxAccountInfo.signature,
           jsApiList: [
             'checkJsApi',
             'onMenuShareTimeline',
