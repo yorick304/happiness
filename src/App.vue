@@ -11,7 +11,7 @@ export default {
   created() {
     console.log(window.location.href)
     let hrefParam = decodeURIComponent(window.location.href)
-    Store.fetchSignture({ url: 'http://fly.viicb.com/wechat/api/service/getWeChatSignature', param: {link: windowhrefParam.split('#')[0]}}).then((res) => {
+    Store.fetchSignture({ url: 'http://fly.viicb.com/wechat/api/service/getWeChatSignature', param: {link: hrefParam.split('#')[0]}}).then((res) => {
       console.log(res)
       let data = res.data
       let wxAccountInfo = data && data.wxAccountInfo
