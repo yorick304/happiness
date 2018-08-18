@@ -329,6 +329,9 @@ cat.touchjs = {
     mounted() {
       let $targetObj = document.getElementById('areaMap');
       cat.touchjs.init($targetObj, function (left, top, scale, rotate) {
+        if (scale < 1) {
+          return
+        }
         $targetObj.style['left'] = left
         $targetObj.style['top'] = top
         $targetObj.style['transform'] = 'scale(' + scale + ') rotate(' + rotate + 'deg)'
