@@ -293,6 +293,9 @@ cat.touchjs = {
   },
   drag: function ($targetObj, callback) {
     touch.on($targetObj, 'drag', function (ev) {
+      if (cat.touchjs.scaleVal == 1) {
+        return
+      }
       $targetObj.style['left'] = (cat.touchjs.left + ev.x) + 'px'
       $targetObj.style['top'] = (cat.touchjs.top + ev.y) + 'px'
     });
