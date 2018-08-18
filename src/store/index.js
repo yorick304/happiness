@@ -8,14 +8,14 @@ export const Store = {
       url: ops && ops.url,
       method: 'post',
       headers: {
-        'content-type': 'application/x-www-form-urlencoded;charset=UTF-8'
+        'content-type': 'application/x-www-form-urlencoded'
       },
-      transformRequest: [function(data) {
+      transformRequest: [function (data) { 
         let ret = ''
-        for (let it in data) {
-          ret += it
-        }
-        return ret
+        for (let it in data) { 
+          ret += decodeURIComponent(it) + '=' + decodeURIComponent(data[it]) + '&' 
+        } 
+        return ret 
       }],
       data: ops && ops.param
     })
