@@ -10,7 +10,7 @@ export default {
   name: 'App',
   created() {
     console.log(window.location.href)
-    Store.fetchSignture({ url: 'http://fly.viicb.com/wechat/api/service/getWeChatSignature', param: {link: window.location.href }}).then((res) => {
+    Store.fetchSignture({ url: 'http://fly.viicb.com/wechat/api/service/getWeChatSignature', param: {link: window.location.href.split('#')[0] }}).then((res) => {
       console.log(res)
       let data = res.data
       let wxAccountInfo = data && data.wxAccountInfo
