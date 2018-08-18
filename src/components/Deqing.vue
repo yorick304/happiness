@@ -269,6 +269,7 @@ cat.touchjs = {
       if (cat.touchjs.curStatus == 2) {
         return;
       }
+      alert(pinch)
       cat.touchjs.curStatus = 1;
       currentScale = ev.scale - 1;
       currentScale = initialScale + currentScale;
@@ -277,6 +278,7 @@ cat.touchjs = {
       $targetObj.style['transform'] = transformStyle;
       $targetObj.style['-webkit-transform'] = transformStyle;
       callback(cat.touchjs.scaleVal);
+
     });
 
     touch.on($targetObj, 'pinchend', function (ev) {
