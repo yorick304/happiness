@@ -335,6 +335,8 @@ cat.touchjs = {
         $targetObj.style['transform'] = 'scale(' + scale + ') rotate(' + rotate + 'deg)'
         $targetObj.style['-webkit-transform'] = 'scale(' + scale + ') rotate(' + rotate + 'deg)'
       });
+      cat.touchjs.scale($targetObj, function (scale) {
+      });
     },
     methods: {
       goBack() {
