@@ -71,6 +71,16 @@
     created() {
       document.body.scrollTop = 0
       document.documentElement.scrollTop = 0
+      wx.ready(function () {
+        var shareData = {
+          title: '杭州区域产业新城',
+          desc: '华夏幸福重点在嘉善、南浔、德清、南湖等地打造产业新城',
+          imgUrl: 'https://si.geilicdn.com/resource-211c0000016546f8a23e0a02853e-unadjust_100_100.png'
+        };
+        wx.onMenuShareAppMessage(shareData['link'] = window.location.href)
+        wx.onMenuShareTimeline(shareData['link'] = window.location.href)
+        wx.onMenuShareQQ(shareData['link'] = window.location.href)
+      })
     },
     methods: {
       toRegional() {

@@ -12,7 +12,7 @@
         杭州市是浙江省省会和长三角中心城市，面积16596平方公里，人口946.8万人，2017年地区生产总值12556亿元。杭州创新发展水平居全国城市前列，被评为“十大创新城市”和“十大智慧城市”。
       </p>
       <p class="content-str">
-        杭州都市圈是全国最有竞争力的城市群，先进制造业和现代服务业发达。华夏幸福终点在嘉善、南浔、德清、南湖等地打造产业新城。
+        杭州都市圈是全国最有竞争力的城市群，先进制造业和现代服务业发达。华夏幸福重点在嘉善、南浔、德清、南湖等地打造产业新城。
       </p>
       <div class="r-d-content-cluster">
         <img class="cluster-map" src="//si.geilicdn.com/resource-174200000165467f30f40a02685e-unadjust_642_506.png" width="95%" alt="">
@@ -273,6 +273,16 @@
     created() {
       document.body.scrollTop = 0
       document.documentElement.scrollTop = 0
+      wx.ready(function () {
+        var shareData = {
+          title: '杭州区域产业新城',
+          desc: '华夏幸福重点在嘉善、南浔、德清、南湖等地打造产业新城',
+          imgUrl: 'https://si.geilicdn.com/resource-211c0000016546f8a23e0a02853e-unadjust_100_100.png'
+        };
+        wx.onMenuShareAppMessage(shareData['link'] = window.location.href)
+        wx.onMenuShareTimeline(shareData['link'] = window.location.href)
+        wx.onMenuShareQQ(shareData['link'] = window.location.href)
+      })
     },
     methods: {
       goBack() {

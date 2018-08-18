@@ -14,7 +14,7 @@ export default {
       let data = res.data
       let wxAccountInfo = data && data.wxAccountInfo
       wx.config({
-        debug: true,
+        debug: false,
         appId: wxAccountInfo.appId,
         timestamp: wxAccountInfo.timestamp,
         nonceStr: wxAccountInfo.nonceStr,
@@ -30,13 +30,12 @@ export default {
       wx.ready(function () {
         var shareData = {
           title: '杭州区域产业新城',
-          link: window.location.href,
           desc: '华夏幸福重点在嘉善、南浔、德清、南湖等地打造产业新城',
           imgUrl: 'https://si.geilicdn.com/resource-211c0000016546f8a23e0a02853e-unadjust_100_100.png'
         };
-        wx.onMenuShareAppMessage(shareData)
-        wx.onMenuShareTimeline(shareData)
-        wx.onMenuShareQQ(shareData)
+        wx.onMenuShareAppMessage(shareData['link'] = window.location.href)
+        wx.onMenuShareTimeline(shareData['link'] = window.location.href)
+        wx.onMenuShareQQ(shareData['link'] = window.location.href)
       })
     })
   }
