@@ -48,14 +48,19 @@
         padding: 0 40px;
         display: flex;
         align-items: center;
-        &:after {
-          content: "";
-          width: 8px;/*no*/
-          height: 8px;/*no*/
-          border-right: 2px solid #ffffff;/*no*/
-          border-bottom: 2px solid #ffffff;/*no*/
-          transform: rotate(-45deg);
+        span {
+          &:after {
+            content: "";
+            width: 8px;/*no*/
+            height: 8px;/*no*/
+            border-right: 2px solid #ffffff;/*no*/
+            border-bottom: 2px solid #ffffff;/*no*/
+            transform: rotate(-45deg);
+            position: absolute;
+            top: 39%;
+          }
         }
+        
       }
     }
   }
