@@ -11,7 +11,9 @@
       <div class="area-title-tip">
         区位优势
       </div>
-      <img class="area-map" src="//si.geilicdn.com/resource-4f10000001654666ee010a028841-unadjust_690_690.png" width="92%" alt="">
+      <div style="overflow: scroll;height: 345px;">
+        <img id="areaMap" class="area-map" src="//si.geilicdn.com/resource-4f10000001654666ee010a028841-unadjust_690_690.png" width="92%" alt="" @click="areaMap">
+      </div>
       <div class="area-str-wrap">
         <img src="//si.geilicdn.com/resource-295b0000016542c1a1800a026860-unadjust_22_20.png" alt="">
         <p class="area-str">
@@ -279,6 +281,38 @@
         this.$router.push({
           path: '/Regional'
         })
+      },
+      areaMap() {
+        var oBox = document.getElementById("areaMap");
+        var c=1;//先定义一个初始值
+        document.addEventListener('touchstart',function (ev) {//手指点下
+         var oldC=c;//把初始值放到oldC里面
+         function getC(ev) {
+          var x1=ev.targetTouches[0].pageX;
+          var y1=ev.targetTouches[0].pageY;//两根手指缩放肯定需要两根手指，【0】第一根手指的Xy的坐标
+
+          var x2=ev.targetTouches[1].pageX;//第二根手指的坐标
+          var y2=ev.targetTouches[1].pageY;
+
+          var a=x1-x2;//第一根手指的pageX-第二根手指的pageX，这样正好是一个之间三角形 得到两个直角边；
+          var b=y1-y2;//同上
+          return Math.sqrt(a*a+b*b)//已知两个直角边开平方得出 斜角边
+         }
+         if(ev.targetTouches.length==2){//判断是否是两根手指 是的话 把两根手指点上去的时候的 斜脚边的初始值 放到 downC里面
+          var downC=getC(ev);
+         }
+         document.addEventListener('touchmove',function (ev) { //手指移动的时候
+          if(ev.targetTouches.length==2){//判断移动的时候是否是两根手指
+           c=getC(ev)/downC+oldC;//这个时候的getC(ev)是move时候的，用移动后的斜脚边的值除没移动的值加上他的初始值，
+           oBox.style.webkitTransform='scale('+c+')';//通过scale----2D缩放转换
+          }
+         },false)
+
+
+
+        },false)
+
+
       }
     }
   }

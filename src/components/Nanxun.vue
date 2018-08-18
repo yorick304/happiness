@@ -21,7 +21,7 @@
       <div class="area-str-wrap">
         <img src="../assets/common/right.png" alt="">
         <p class="area-str">
-          南浔产业新城位于难浔区东部、乌镇西北，总面积49平方公里。
+          南浔产业新城位于南浔区东部、乌镇西北，总面积49平方公里。
         </p>
       </div>
       <div class="area-title-tip">
