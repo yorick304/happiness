@@ -293,8 +293,8 @@ cat.touchjs = {
   },
   drag: function ($targetObj, callback) {
     touch.on($targetObj, 'drag', function (ev) {
-      targetObj.style['left'] = cat.touchjs.left + ev.x
-      targetObj.style['top'] = cat.touchjs.top + ev.y
+      $targetObj.style['left'] = cat.touchjs.left + ev.x
+      $targetObj.style['top'] = cat.touchjs.top + ev.y
     });
     touch.on($targetObj, 'dragend', function (ev) {
       cat.touchjs.left = cat.touchjs.left + ev.x
