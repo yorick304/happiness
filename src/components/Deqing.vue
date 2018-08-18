@@ -293,9 +293,9 @@ cat.touchjs = {
   },
   drag: function ($targetObj, callback) {
     touch.on($targetObj, 'drag', function (ev) {
-      alert('drag')
       $targetObj.style['left'] = cat.touchjs.left + ev.x
       $targetObj.style['top'] = cat.touchjs.top + ev.y
+      alert(JSON.stringify($targetObj.style))
     });
     touch.on($targetObj, 'dragend', function (ev) {
       cat.touchjs.left = cat.touchjs.left + ev.x
