@@ -251,46 +251,56 @@ cat.touchjs = {
   //初始化
   init: function ($targetObj, callback) {
     touch.on($targetObj, 'touchstart', function (ev) {
-      cat.touchjs.curStatus = 0;
-      ev.preventDefault();//阻止默认事件
+      cat.touchjs.curStatus = 0
+      ev.preventDefault() //阻止默认事件
     });
     if (!window.localStorage.cat_touchjs_data)
-      callback(0, 0, 1, 0);
+      callback(0, 0, 1, 0)
     else {
-      var jsonObj = JSON.parse(window.localStorage.cat_touchjs_data);
-      cat.touchjs.left = parseFloat(jsonObj.left), cat.touchjs.top = parseFloat(jsonObj.top), cat.touchjs.scaleVal = parseFloat(jsonObj.scale), cat.touchjs.rotateVal = parseFloat(jsonObj.rotate);
-      callback(cat.touchjs.left, cat.touchjs.top, cat.touchjs.scaleVal, cat.touchjs.rotateVal);
+      var jsonObj = JSON.parse(window.localStorage.cat_touchjs_data)
+      cat.touchjs.left = parseFloat(jsonObj.left), cat.touchjs.top = parseFloat(jsonObj.top), cat.touchjs.scaleVal = parseFloat(jsonObj.scale), cat.touchjs.rotateVal = parseFloat(jsonObj.rotate)
+      callback(cat.touchjs.left, cat.touchjs.top, cat.touchjs.scaleVal, cat.touchjs.rotateVal)
     }
   },
   scale: function ($targetObj, callback) {
-    var initialScale = cat.touchjs.scaleVal || 1;
-    var currentScale;
+    var initialScale = cat.touchjs.scaleVal || 1
+    var currentScale
     touch.on($targetObj, 'pinch', function (ev) {
       if (cat.touchjs.curStatus == 2) {
-        return;
+        return
       }
-      cat.touchjs.curStatus = 1;
-      currentScale = ev.scale - 1;
-      currentScale = initialScale + currentScale;
-      cat.touchjs.scaleVal = currentScale;
+      cat.touchjs.curStatus = 1
+      currentScale = ev.scale - 1
+      currentScale = initialScale + currentScale
+      cat.touchjs.scaleVal = currentScale
       if (currentScale < 1) {
         return
       }
       var transformStyle = 'scale(' + cat.touchjs.scaleVal + ') rotate(' + cat.touchjs.rotateVal + 'deg)';
-      $targetObj.style['transform'] = transformStyle;
-      $targetObj.style['-webkit-transform'] = transformStyle;
-      callback(cat.touchjs.scaleVal);
-
+      $targetObj.style['transform'] = transformStyle
+      $targetObj.style['-webkit-transform'] = transformStyle
+      callback(cat.touchjs.scaleVal)
     });
 
     touch.on($targetObj, 'pinchend', function (ev) {
       if (cat.touchjs.curStatus == 2) {
         return;
       }
-      initialScale = currentScale;
-      cat.touchjs.scaleVal = currentScale;
-      callback(cat.touchjs.scaleVal);
+      initialScale = currentScale
+      cat.touchjs.scaleVal = currentScale
+      callback(cat.touchjs.scaleVal)
     });
+  },
+  drag: function ($targetObj, callback) {
+    touch.on($targetObj, 'drag', function (ev) {
+      targetObj.style['left'] = cat.touchjs.left + ev.x
+      targetObj.style['top'] = cat.touchjs.top + ev.y
+    });
+    touch.on($targetObj, 'dragend', function (ev) {
+      cat.touchjs.left = cat.touchjs.left + ev.x
+      cat.touchjs.top = cat.touchjs.top + ev.y
+      callback(cat.touchjs.left, cat.touchjs.top)
+    })
   }
 };
   require('swiper/dist/css/swiper.css')
