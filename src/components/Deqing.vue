@@ -243,6 +243,7 @@
   require('swiper/dist/css/swiper.css')
   import { swiper, swiperSlide } from 'vue-awesome-swiper'
   import FooterNav from './common/FooterNav.vue'
+  // import touch from 'touch'
   export default {
     name: 'Deqing',
     components: {
@@ -276,6 +277,40 @@
       document.body.scrollTop = 0
       document.documentElement.scrollTop = 0
     },
+    mounted() {
+      let touchjs = {
+        left: 0,
+        top: 0,
+        scaleVal: 1,
+        rotateVal: 0,
+        curStatus: 0,
+      }
+      var initialScale = touchjs.scaleVal || 1;
+      var currentScale;
+      let $targetObj = document.getElementById('areaMap');
+      touch.on($targetObj, 'pinch', function (ev) {
+          if (touchjs.curStatus == 2) {
+              return;
+          }
+          cat.touchjs.curStatus = 1;
+          currentScale = ev.scale - 1;
+          currentScale = initialScale + currentScale;
+          touchjs.scaleVal = currentScale;
+          var transformStyle = 'scale(' + touchjs.scaleVal + ') rotate(' + touchjs.rotateVal + 'deg)';
+          $targetObj.style['transform'] = transformStyle;
+          $targetObj.style['-webkit-transform'] = transformStyle;
+          callback(touchjs.scaleVal);
+      });
+
+      touch.on($targetObj, 'pinchend', function (ev) {
+          if (cat.touchjs.curStatus == 2) {
+              return;
+          }
+          initialScale = currentScale;
+          touchjs.scaleVal = currentScale;
+          callback(touchjs.scaleVal);
+      });
+    },
     methods: {
       goBack() {
         this.$router.push({
@@ -283,36 +318,7 @@
         })
       },
       areaMap() {
-        var oBox = document.getElementById("areaMap");
-        var c=1;//先定义一个初始值
-        document.addEventListener('touchstart',function (ev) {//手指点下
-         var oldC=c;//把初始值放到oldC里面
-         function getC(ev) {
-          var x1=ev.targetTouches[0].pageX;
-          var y1=ev.targetTouches[0].pageY;//两根手指缩放肯定需要两根手指，【0】第一根手指的Xy的坐标
-
-          var x2=ev.targetTouches[1].pageX;//第二根手指的坐标
-          var y2=ev.targetTouches[1].pageY;
-
-          var a=x1-x2;//第一根手指的pageX-第二根手指的pageX，这样正好是一个之间三角形 得到两个直角边；
-          var b=y1-y2;//同上
-          return Math.sqrt(a*a+b*b)//已知两个直角边开平方得出 斜角边
-         }
-         if(ev.targetTouches.length==2){//判断是否是两根手指 是的话 把两根手指点上去的时候的 斜脚边的初始值 放到 downC里面
-          var downC=getC(ev);
-         }
-         document.addEventListener('touchmove',function (ev) { //手指移动的时候
-          if(ev.targetTouches.length==2){//判断移动的时候是否是两根手指
-           c=getC(ev)/downC+oldC;//这个时候的getC(ev)是move时候的，用移动后的斜脚边的值除没移动的值加上他的初始值，
-           oBox.style.webkitTransform='scale('+c+')';//通过scale----2D缩放转换
-          }
-         },false)
-
-
-
-        },false)
-
-
+        
       }
     }
   }
