@@ -13,7 +13,7 @@ export const Store = {
       transformRequest: [function(data) {
         let ret = ''
         for (let it in data) {
-          ret += decodeURIComponent(it) + '=' + decodeURIComponent(data[it]) + '&'
+          ret += decodeURIComponent(it) + '=' + decodeURIComponent(data[it])
         }
         return ret
       }],
