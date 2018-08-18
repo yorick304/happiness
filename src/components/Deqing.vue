@@ -11,7 +11,7 @@
       <div class="area-title-tip">
         区位优势
       </div>
-      <div style="position:relative;overflow: hidden;height: 345px;">
+      <div style="position:relative;overflow: hidden;height: 345px;width: 100%;">
         <img id="areaMap" style="position:relative;transform-origin:center" class="area-map" src="//si.geilicdn.com/resource-4f10000001654666ee010a028841-unadjust_690_690.png" width="92%" alt="">
       </div>
       <div class="area-str-wrap">
