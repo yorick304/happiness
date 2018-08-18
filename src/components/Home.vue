@@ -49,6 +49,7 @@
         display: flex;
         align-items: center;
         span {
+          margin-right: 12px;
           &:after {
             content: "";
             width: 8px;/*no*/
