@@ -17,7 +17,7 @@ export default {
       let wxAccountInfo = data && data.wxAccountInfo
       console.log(wxAccountInfo)
       wx.config({
-        debug: true,
+        debug: false,
         appId: wxAccountInfo.appId,
         timestamp: wxAccountInfo.timestamp,
         nonceStr: wxAccountInfo.nonceStr,
