@@ -12,7 +12,7 @@
         区位优势
       </div>
       <div style="overflow: scroll;height: 345px;">
-        <img id="areaMap" style="position:relative;transform-origin:center" class="area-map" src="//si.geilicdn.com/resource-4f10000001654666ee010a028841-unadjust_690_690.png" width="92%" alt="" @click="areaMap">
+        <img id="areaMap" style="position:relative;transform-origin:center" class="area-map" src="//si.geilicdn.com/resource-4f10000001654666ee010a028841-unadjust_690_690.png" width="92%" alt="">
       </div>
       <div class="area-str-wrap">
         <img src="//si.geilicdn.com/resource-295b0000016542c1a1800a026860-unadjust_22_20.png" alt="">
@@ -269,7 +269,7 @@ cat.touchjs = {
       if (cat.touchjs.curStatus == 2) {
         return;
       }
-      alert(pinch)
+      alert('pinch')
       cat.touchjs.curStatus = 1;
       currentScale = ev.scale - 1;
       currentScale = initialScale + currentScale;
@@ -334,6 +334,7 @@ cat.touchjs = {
         $targetObj.style['top'] = top
         $targetObj.style['transform'] = 'scale(' + scale + ') rotate(' + rotate + 'deg)'
         $targetObj.style['-webkit-transform'] = 'scale(' + scale + ') rotate(' + rotate + 'deg)'
+        alert(JSON.stringify($targetObj.style))
       });
       cat.touchjs.scale($targetObj, function (scale) {
 
