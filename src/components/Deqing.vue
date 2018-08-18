@@ -11,8 +11,8 @@
       <div class="area-title-tip">
         区位优势
       </div>
-      <div style="position:relative;overflow: hidden;height: 345px;width: 100%;">
-        <img id="areaMap" style="position:relative;transform-origin:center" class="area-map" src="//si.geilicdn.com/resource-4f10000001654666ee010a028841-unadjust_690_690.png" width="92%" alt="">
+      <div style="position:relative;overflow: hidden;width: 100%;">
+        <img id="areaMap" style="position:relative;transform-origin:center" class="area-map" :src="areaMapUrl" width="92%" alt="" @click="areaMap"/>
       </div>
       <div class="area-str-wrap">
         <img src="//si.geilicdn.com/resource-295b0000016542c1a1800a026860-unadjust_22_20.png" alt="">
@@ -240,74 +240,6 @@
   }
 </style>
 <script>
-
-var cat = window.cat || {};
-cat.touchjs = {
-  left: 0,
-  top: 0,
-  scaleVal: 1,    //缩放
-  rotateVal: 0,   //旋转
-  curStatus: 0,   //记录当前手势的状态, 0:拖动, 1:缩放, 2:旋转
-  //初始化
-  init: function ($targetObj, callback) {
-    touch.on($targetObj, 'touchstart', function (ev) {
-      cat.touchjs.curStatus = 0
-      ev.preventDefault() //阻止默认事件
-    });
-    if (!window.localStorage.cat_touchjs_data)
-      callback(0, 0, 1, 0)
-    else {
-      var jsonObj = JSON.parse(window.localStorage.cat_touchjs_data)
-      cat.touchjs.left = parseFloat(jsonObj.left), cat.touchjs.top = parseFloat(jsonObj.top), cat.touchjs.scaleVal = parseFloat(jsonObj.scale), cat.touchjs.rotateVal = parseFloat(jsonObj.rotate)
-      callback(cat.touchjs.left, cat.touchjs.top, cat.touchjs.scaleVal, cat.touchjs.rotateVal)
-    }
-  },
-  scale: function ($targetObj, callback) {
-    var initialScale = cat.touchjs.scaleVal || 1
-    var currentScale
-    touch.on($targetObj, 'pinch', function (ev) {
-      if (cat.touchjs.curStatus == 2) {
-        return
-      }
-      cat.touchjs.curStatus = 1
-      currentScale = ev.scale - 1
-      currentScale = initialScale + currentScale
-      cat.touchjs.scaleVal = currentScale
-      if (currentScale < 1) {
-        cat.touchjs.scaleVal = 1
-        $targetObj.style['left'] = '0px'
-        $targetObj.style['top'] = '0px'
-      }
-      var transformStyle = 'scale(' + cat.touchjs.scaleVal + ') rotate(' + cat.touchjs.rotateVal + 'deg)';
-      $targetObj.style['transform'] = transformStyle
-      $targetObj.style['-webkit-transform'] = transformStyle
-      callback(cat.touchjs.scaleVal)
-    });
-
-    touch.on($targetObj, 'pinchend', function (ev) {
-      if (cat.touchjs.curStatus == 2) {
-        return;
-      }
-      initialScale = currentScale
-      cat.touchjs.scaleVal = currentScale
-      callback(cat.touchjs.scaleVal)
-    });
-  },
-  drag: function ($targetObj, callback) {
-    touch.on($targetObj, 'drag', function (ev) {
-      if (cat.touchjs.scaleVal <= 1) {
-        return
-      }
-      $targetObj.style['left'] = (cat.touchjs.left + ev.x) + 'px'
-      $targetObj.style['top'] = (cat.touchjs.top + ev.y) + 'px'
-    });
-    touch.on($targetObj, 'dragend', function (ev) {
-      cat.touchjs.left = cat.touchjs.left + ev.x
-      cat.touchjs.top = cat.touchjs.top + ev.y
-      callback(cat.touchjs.left, cat.touchjs.top)
-    })
-  }
-};
   require('swiper/dist/css/swiper.css')
   import { swiper, swiperSlide } from 'vue-awesome-swiper'
   import FooterNav from './common/FooterNav.vue'
@@ -337,25 +269,13 @@ cat.touchjs = {
             el: '.swiper-pagination',
             clickable: true
           }
-        }
+        },
+        areaMapUrl: '//si.geilicdn.com/resource-4f10000001654666ee010a028841-unadjust_690_690.png'
       }
     },
     created() {
       document.body.scrollTop = 0
       document.documentElement.scrollTop = 0
-    },
-    mounted() {
-      let $targetObj = document.getElementById('areaMap');
-      cat.touchjs.init($targetObj, function (left, top, scale, rotate) {
-        $targetObj.style['left'] = left
-        $targetObj.style['top'] = top
-        $targetObj.style['transform'] = 'scale(' + scale + ') rotate(' + rotate + 'deg)'
-        $targetObj.style['-webkit-transform'] = 'scale(' + scale + ') rotate(' + rotate + 'deg)'
-      });
-      cat.touchjs.scale($targetObj, function (scale) {
-      });
-      cat.touchjs.drag($targetObj, function (left, top) {
-      });
     },
     methods: {
       goBack() {
@@ -364,7 +284,14 @@ cat.touchjs = {
         })
       },
       areaMap() {
-        
+        this.$ImagePreview({
+          imgList: [
+            {
+              url: this.areaMapUrl
+            }
+          ],
+          showIndicator: false
+        })
       }
     }
   }

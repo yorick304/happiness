@@ -11,7 +11,7 @@
       <div class="area-title-tip">
         区位优势
       </div>
-      <img class="area-map" src="//si.geilicdn.com/resource-44a90000016542ceb6bf0a026860-unadjust_690_690.png" width="92%" alt="">
+      <img class="area-map" :src="areaMapUrl" width="92%" alt="" @click="areaMap"/>
       <div class="area-str-wrap">
         <img src="../assets/common/right.png" alt="">
         <p class="area-str">
@@ -271,7 +271,8 @@
             el: '.swiper-pagination',
             clickable: true
           }
-        }
+        },
+        areaMapUrl: '//si.geilicdn.com/resource-44a90000016542ceb6bf0a026860-unadjust_690_690.png'
       }
     },
     created() {
@@ -282,6 +283,16 @@
       goBack() {
         this.$router.push({
           path: '/Regional'
+        })
+      },
+      areaMap() {
+        this.$ImagePreview({
+          imgList: [
+            {
+              url: this.areaMapUrl
+            }
+          ],
+          showIndicator: false
         })
       }
     }
