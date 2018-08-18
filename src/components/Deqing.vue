@@ -229,6 +229,7 @@
         margin: 0 30px;
         .transportation-str {
           display: block;
+          color: #333333;
           em {
             font-style: normal;
             font-weight: bold;

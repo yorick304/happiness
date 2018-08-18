@@ -51,7 +51,7 @@
       <div class="area-str-wrap">
         <img src="../assets/common/right.png" alt="">
         <p class="area-str">
-          南浔及其周边正在形成新能源汽车产业基地。100公里范围内有十多家大型车企，如上汽、吉利、华域、万向等；动力电池、汽车电子、核心零部件等配套企业不可胜数。相邻的厂兴、海宁是著名的动力电池产业集聚区，合众、吉利、长江、吉奥等一批新能源汽车企业均在周边布局。
+          南浔及其周边正在形成新能源汽车产业基地。100公里范围内有十多家大型车企，如上汽、吉利、华域、万向等；动力电池、汽车电子、核心零部件等配套企业不可胜数。相邻的长兴、海宁是著名的动力电池产业集聚区，合众、吉利、长江、吉奥等一批新能源汽车企业均在周边布局。
         </p>
       </div>
       <div class="area-str-wrap">
@@ -231,6 +231,7 @@
         margin: 0 30px;
         .transportation-str {
           display: block;
+          color: #333333;
           em {
             font-style: normal;
             font-weight: bold;
