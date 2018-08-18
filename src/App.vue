@@ -9,7 +9,8 @@ import {Store} from './store/index.js'
 export default {
   name: 'App',
   created() {
-    Store.fetchSignture({ url: 'http://fly.viicb.com/wechat/api/service/getWeChatSignature', param: {link: window.location.href }}).then((res) => {
+    console.log(window.location.href.split('#')[0])
+    Store.fetchSignture({ url: 'http://fly.viicb.com/wechat/api/service/getWeChatSignature', param: {link: 'http://fly.viicb.com/fly2/index.html' }}).then((res) => {
       console.log(res)
       let data = res.data
       let wxAccountInfo = data && data.wxAccountInfo
