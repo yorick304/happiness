@@ -11,7 +11,7 @@
       <div class="area-title-tip">
         区位优势
       </div>
-      <div style="overflow: scroll;height: 345px;">
+      <div style="position:relative;overflow: hidden;height: 345px;">
         <img id="areaMap" style="position:relative;transform-origin:center" class="area-map" src="//si.geilicdn.com/resource-4f10000001654666ee010a028841-unadjust_690_690.png" width="92%" alt="">
       </div>
       <div class="area-str-wrap">
@@ -273,6 +273,9 @@ cat.touchjs = {
       currentScale = ev.scale - 1;
       currentScale = initialScale + currentScale;
       cat.touchjs.scaleVal = currentScale;
+      if (currentScale < 1) {
+        return
+      }
       var transformStyle = 'scale(' + cat.touchjs.scaleVal + ') rotate(' + cat.touchjs.rotateVal + 'deg)';
       $targetObj.style['transform'] = transformStyle;
       $targetObj.style['-webkit-transform'] = transformStyle;
@@ -329,9 +332,6 @@ cat.touchjs = {
     mounted() {
       let $targetObj = document.getElementById('areaMap');
       cat.touchjs.init($targetObj, function (left, top, scale, rotate) {
-        if (scale < 1) {
-          return
-        }
         $targetObj.style['left'] = left
         $targetObj.style['top'] = top
         $targetObj.style['transform'] = 'scale(' + scale + ') rotate(' + rotate + 'deg)'
