@@ -243,7 +243,6 @@
   require('swiper/dist/css/swiper.css')
   import { swiper, swiperSlide } from 'vue-awesome-swiper'
   import FooterNav from './common/FooterNav.vue'
-  // import touch from 'touch'
   export default {
     name: 'Deqing',
     components: {

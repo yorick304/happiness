@@ -199,7 +199,7 @@
                     border-right: 1px solid #bf0008;/*no*/
                     border-bottom: 1px solid #bf0008;/*no*/
                     right: -18px;
-                    top: 8px;
+                    top: 10px;
                     position: absolute;
                     transform: rotate(-45deg);
                   }
