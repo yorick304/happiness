@@ -240,6 +240,54 @@
   }
 </style>
 <script>
+
+var cat = window.cat || {};
+cat.touchjs = {
+  left: 0,
+  top: 0,
+  scaleVal: 1,    //缩放
+  rotateVal: 0,   //旋转
+  curStatus: 0,   //记录当前手势的状态, 0:拖动, 1:缩放, 2:旋转
+  //初始化
+  init: function ($targetObj, callback) {
+    touch.on($targetObj, 'touchstart', function (ev) {
+      cat.touchjs.curStatus = 0;
+      ev.preventDefault();//阻止默认事件
+    });
+    if (!window.localStorage.cat_touchjs_data)
+      callback(0, 0, 1, 0);
+    else {
+      var jsonObj = JSON.parse(window.localStorage.cat_touchjs_data);
+      cat.touchjs.left = parseFloat(jsonObj.left), cat.touchjs.top = parseFloat(jsonObj.top), cat.touchjs.scaleVal = parseFloat(jsonObj.scale), cat.touchjs.rotateVal = parseFloat(jsonObj.rotate);
+      callback(cat.touchjs.left, cat.touchjs.top, cat.touchjs.scaleVal, cat.touchjs.rotateVal);
+    }
+  },
+  scale: function ($targetObj, callback) {
+    var initialScale = cat.touchjs.scaleVal || 1;
+    var currentScale;
+    touch.on($targetObj, 'pinch', function (ev) {
+      if (cat.touchjs.curStatus == 2) {
+        return;
+      }
+      cat.touchjs.curStatus = 1;
+      currentScale = ev.scale - 1;
+      currentScale = initialScale + currentScale;
+      cat.touchjs.scaleVal = currentScale;
+      var transformStyle = 'scale(' + cat.touchjs.scaleVal + ') rotate(' + cat.touchjs.rotateVal + 'deg)';
+      $targetObj.css("transform", transformStyle).css("-webkit-transform", transformStyle);
+      callback(cat.touchjs.scaleVal);
+    });
+
+    touch.on($targetObj, 'pinchend', function (ev) {
+      if (cat.touchjs.curStatus == 2) {
+        return;
+      }
+      initialScale = currentScale;
+      cat.touchjs.scaleVal = currentScale;
+      callback(cat.touchjs.scaleVal);
+    });
+  }
+};
   require('swiper/dist/css/swiper.css')
   import { swiper, swiperSlide } from 'vue-awesome-swiper'
   import FooterNav from './common/FooterNav.vue'
@@ -277,37 +325,12 @@
       document.documentElement.scrollTop = 0
     },
     mounted() {
-      let touchjs = {
-        left: 0,
-        top: 0,
-        scaleVal: 1,
-        rotateVal: 0,
-        curStatus: 0,
-      }
-      var initialScale = touchjs.scaleVal || 1;
-      var currentScale;
       let $targetObj = document.getElementById('areaMap');
-      touch.on($targetObj, 'pinch', function (ev) {
-          if (touchjs.curStatus == 2) {
-              return;
-          }
-          cat.touchjs.curStatus = 1;
-          currentScale = ev.scale - 1;
-          currentScale = initialScale + currentScale;
-          touchjs.scaleVal = currentScale;
-          var transformStyle = 'scale(' + touchjs.scaleVal + ') rotate(' + touchjs.rotateVal + 'deg)';
-          $targetObj.style['transform'] = transformStyle;
-          $targetObj.style['-webkit-transform'] = transformStyle;
-          callback(touchjs.scaleVal);
-      });
-
-      touch.on($targetObj, 'pinchend', function (ev) {
-          if (cat.touchjs.curStatus == 2) {
-              return;
-          }
-          initialScale = currentScale;
-          touchjs.scaleVal = currentScale;
-          callback(touchjs.scaleVal);
+      cat.touchjs.init($targetObj, function (left, top, scale, rotate) {
+        $targetObj.style['left'] = left
+        $targetObj.style['top'] = top
+        $targetObj.style['transform'] = 'scale(' + scale + ') rotate(' + rotate + 'deg)'
+        $targetObj.style['-webkit-transform'] = 'scale(' + scale + ') rotate(' + rotate + 'deg)'
       });
     },
     methods: {
