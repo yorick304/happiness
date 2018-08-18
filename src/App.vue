@@ -9,15 +9,12 @@ import {Store} from './store/index.js'
 export default {
   name: 'App',
   created() {
-    console.log(window.location.href)
     let hrefParam = decodeURIComponent(window.location.href)
-    Store.fetchSignture({ url: 'http://fly.viicb.com/wechat/api/service/getWeChatSignature', param: {link: hrefParam.split('#')[0]}}).then((res) => {
-      console.log(res)
+    Store.fetchSignture({ url: 'http://fly.viicb.com/wechat/api/service/getWeChatSignature', param: {link: hrefParam}}).then((res) => {
       let data = res.data
       let wxAccountInfo = data && data.wxAccountInfo
-      console.log(wxAccountInfo)
       wx.config({
-        debug: false,
+        debug: true,
         appId: wxAccountInfo.appId,
         timestamp: wxAccountInfo.timestamp,
         nonceStr: wxAccountInfo.nonceStr,
@@ -34,6 +31,7 @@ export default {
         var shareData = {
           title: '杭州区域产业新城',
           link: window.location.href,
+          desc: '华夏幸福重点在嘉善、南浔、德清、南湖等地打造产业新城',
           imgUrl: 'https://si.geilicdn.com/resource-211c0000016546f8a23e0a02853e-unadjust_100_100.png'
         };
         wx.onMenuShareAppMessage(shareData)
