@@ -274,7 +274,7 @@ cat.touchjs = {
       currentScale = initialScale + currentScale
       cat.touchjs.scaleVal = currentScale
       if (currentScale < 1) {
-        return
+        cat.touchjs.scaleVal = 1
       }
       var transformStyle = 'scale(' + cat.touchjs.scaleVal + ') rotate(' + cat.touchjs.rotateVal + 'deg)';
       $targetObj.style['transform'] = transformStyle
@@ -293,8 +293,8 @@ cat.touchjs = {
   },
   drag: function ($targetObj, callback) {
     touch.on($targetObj, 'drag', function (ev) {
-      $targetObj.style['left'] = cat.touchjs.left + ev.x
-      $targetObj.style['top'] = cat.touchjs.top + ev.y
+      $targetObj.style['left'] = (cat.touchjs.left + ev.x) + 'px'
+      $targetObj.style['top'] = (cat.touchjs.top + ev.y) + 'px'
     });
     touch.on($targetObj, 'dragend', function (ev) {
       cat.touchjs.left = cat.touchjs.left + ev.x
