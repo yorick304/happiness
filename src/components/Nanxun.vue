@@ -272,7 +272,7 @@
             clickable: true
           }
         },
-        areaMapUrl: '//si.geilicdn.com/resource-44a90000016542ceb6bf0a026860-unadjust_690_690.png'
+        areaMapUrl: '//si.geilicdn.com/resource-783f000001654c56cf4e0a028841_690_690.jpg'
       }
     },
     created() {

@@ -257,7 +257,7 @@
             clickable: true
           }
         },
-        areaMapUrl: '//si.geilicdn.com/resource-50ba000001654667b0110a028841_1600_1600.jpg'
+        areaMapUrl: '//si.geilicdn.com/resource-0a0a000001654c564c580a02685e_690_690.jpg'
       }
     },
     created() {
