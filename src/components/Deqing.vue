@@ -275,6 +275,8 @@ cat.touchjs = {
       cat.touchjs.scaleVal = currentScale
       if (currentScale < 1) {
         cat.touchjs.scaleVal = 1
+        $targetObj.style['left'] = '0px'
+        $targetObj.style['top'] = '0px'
       }
       var transformStyle = 'scale(' + cat.touchjs.scaleVal + ') rotate(' + cat.touchjs.rotateVal + 'deg)';
       $targetObj.style['transform'] = transformStyle
