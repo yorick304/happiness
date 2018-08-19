@@ -215,11 +215,12 @@
         text-align: justify;
         margin: 0 30px;
         .transportation-str {
-          display: block;
           color: #333333;
+          display: flex;
           em {
             font-style: normal;
             font-weight: bold;
+            flex: none;
           }
         }
         
