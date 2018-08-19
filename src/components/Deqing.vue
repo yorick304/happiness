@@ -93,7 +93,7 @@
           </div>
         </div>
         <div class="industry-item">
-          <img class="industry-left" src="//si.geilicdn.com/resource-0cf6000001654330e0c70a02853e-unadjust_116_116.png" height="57px" width="57px"/>
+          <img class="industry-left" src="//si.geilicdn.com/resource-79d70000016551f5a37a0a028841-unadjust_116_116.png" height="57px" width="57px"/>
           <div class="industry-right">
             <span class="industry-title">汽车关键零部件</span>
             <span class="industry-str">

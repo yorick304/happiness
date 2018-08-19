@@ -85,7 +85,7 @@
           </div>
         </div>
         <div class="industry-item">
-          <img class="industry-left" src="//si.geilicdn.com/resource-277f000001654334a9c00a026860-unadjust_116_116.png" height="57px" width="57px"/>
+          <img class="industry-left" src="//si.geilicdn.com/resource-09390000016551f389c70a026860-unadjust_116_116.png" height="57px" width="57px"/>
           <div class="industry-right">
             <span class="industry-title">医疗器械</span>
             <span class="industry-str">
