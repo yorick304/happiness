@@ -10,7 +10,7 @@ export default {
   name: 'App',
   created() {
 
-    let hrefParam = decodeURIComponent(window.location.href)
+    let hrefParam = window.location.href
     Store.fetchSignture({ url: 'http://wechat.viicb.com/?service=App.Weixin.GetJsSign', param: {url: hrefParam}}).then((res) => {
       if (res.ret==200) {
         let data = res.data
