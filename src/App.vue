@@ -9,13 +9,12 @@ import {Store} from './store/index.js'
 export default {
   name: 'App',
   created() {
-
     let hrefParam = window.location.href
     Store.fetchSignture({ url: 'http://wechat.viicb.com/?service=App.Weixin.GetJsSign', param: {url: hrefParam}}).then((res) => {
       if (res.ret==200) {
         let data = res.data
         wx.config({
-          debug: true,
+          debug: false,
           appId: 'wx39cfe2803524d9df',
           timestamp: data.timestamp,
           nonceStr: data.nonceStr,
