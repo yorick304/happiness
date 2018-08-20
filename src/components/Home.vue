@@ -6,7 +6,7 @@
       <source src="../assets/common/info2.mp4" type="video/mp4">
     </video>
     <div class="bottom">
-      <img src="//si.geilicdn.com/resource-2ddf00000165477f3a2f0a028841-unadjust_750_914.png" width="100%" alt="">
+      <img src="//si.geilicdn.com/resource-12ca0000016557c0824f0a02853e-unadjust_750_915.png" width="100%" alt="">
       <div class="button" @click="toRegional">
         <span style="flex: auto;">杭州区域产业新城</span>
       </div>

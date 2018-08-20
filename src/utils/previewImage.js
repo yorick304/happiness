@@ -197,27 +197,6 @@
         var touchEndFun = function(){
             _this.touchEndFun.call(_this);
         }
-
-        // var orientationChangeFun = function(){
-        //     var angle = screen.orientation.angle;
-        //     var _this = this;
-        //     if(angle==90||angle==180){
-        //         _this.winw = _this.originWinh;
-        //         _this.winh = _this.originWinw;
-        //     }else{
-        //         _this.winw = _this.originWinw;
-        //         _this.winh = _this.originWinh;
-        //     }
-        //     _this.$container.style.width = _this.winw+'px';   //改变宽度
-        //     _this.$container.style.height = _this.winh+'px';  //改变高度
-        //     _this.imageChageMoveX = _this.marginRight+_this.winw;
-        //     var offsetX = -_this.imageChageMoveX*_this.index;  //计算显示当前图片，容器所需偏移量
-        //     try{
-        //         _this.box.x = offsetX;   //将图片容器所需偏移量，存入状态缓存器
-        //         _this.translateScale(_this.bIndex,0);
-        //     }catch(e){}
-        // }.bind(this);
-
         var reSizeFun = function(){
             var _this = this;
             _this.winw = window.innerWidth||document.body.clientWidth;  //窗口的宽度
@@ -234,7 +213,6 @@
             }catch(e){}
         }.bind(this);
 
-        // window.addEventListener("orientationchange",orientationChangeFun,false);
         window.addEventListener("resize",reSizeFun,false);
         $.delegate($container,'click','.previewImage-item',closePreview);
         $.delegate($container,'touchstart','.previewImage-item',touchStartFun);

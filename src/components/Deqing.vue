@@ -11,7 +11,7 @@
       <div class="area-title-tip">
         区位优势
       </div>
-      <div style="position:relative;overflow: hidden;width: 100%;" id="img_box">
+      <div style="position:relative;overflow: hidden;width: 100%;" id="imgBox">
         <img id="areaMap" style="position:relative;transform-origin:center" class="area-map" :src="areaMapUrl" width="92%" alt="" @click="areaMap"/>
       </div>
       <div class="area-str-wrap">
@@ -245,8 +245,10 @@
   require('swiper/dist/css/swiper.css')
   import { swiper, swiperSlide } from 'vue-awesome-swiper'
   import FooterNav from './common/FooterNav.vue'
+  import previewMixin from '../utils/previewMixin.js'
   export default {
     name: 'Deqing',
+    mixins: [previewMixin],
     components: {
       swiper,
       swiperSlide,
@@ -284,59 +286,6 @@
         this.$router.push({
           path: '/Regional'
         })
-      },
-      areaMap() {
-        var $ = {};
-        $.all = function(selector, contextElement) {
-          var nodeList,
-            list = [];
-          if (contextElement) {
-            nodeList = contextElement.querySelectorAll(selector);
-          } else {
-            nodeList = document.querySelectorAll(selector);
-          }
-          if (nodeList && nodeList.length > 0) {
-            list = Array.prototype.slice.call(nodeList);
-          }
-          return list;
-        }
-        $.delegate = function($el, eventType, selector, fn) {
-          if (!$el) { return; }
-          $el.addEventListener(eventType, function(e) {
-            var targets = $.all(selector, $el);
-            if (!targets) {
-              return;
-            }
-            // findTarget:
-            for (var i=0; i<targets.length; i++) {
-              var $node = e.target;
-              while ($node) {
-                if ($node == targets[i]) {
-                  fn.call($node, e);
-                  break; //findTarget;
-                }
-                $node = $node.parentNode;
-                if ($node == $el) {
-                  break;
-                }
-              }
-            }
-          }, false);
-        };
-        var urls = [];
-        var imgs = $.all('img',$.all('#img_box')[0]);
-        imgs.forEach(function(v,i){
-            urls.push(v.src);
-        })
-      
-        $.delegate(document.querySelector('#img_box'), 'click','img',function(){
-            var current = this.src;
-            var obj = {
-                urls : urls,
-                current : current
-            };
-            window.previewImage.start(obj);
-        });    
       }
     }
   }

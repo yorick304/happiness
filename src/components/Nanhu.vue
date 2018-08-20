@@ -11,7 +11,9 @@
       <div class="area-title-tip">
         区位优势
       </div>
-      <img class="area-map" :src="areaMapUrl" width="92%" alt="" @click="areaMap"/>
+      <div style="position:relative;overflow: hidden;width: 100%;" id="imgBox">
+        <img class="area-map" :src="areaMapUrl" width="92%" alt="" @click="areaMap"/>
+      </div>
       <div class="area-str-wrap">
         <img src="../assets/common/right.png" alt="">
         <p class="area-str">
@@ -232,8 +234,10 @@
   require('swiper/dist/css/swiper.css')
   import { swiper, swiperSlide } from 'vue-awesome-swiper'
   import FooterNav from './common/FooterNav.vue'
+  import previewMixin from '../utils/previewMixin.js'
   export default {
     name: 'Nanhu',
+    mixins: [previewMixin],
     components: {
       swiper,
       swiperSlide,
@@ -270,16 +274,6 @@
       goBack() {
         this.$router.push({
           path: '/Regional'
-        })
-      },
-      areaMap() {
-        this.$ImagePreview({
-          imgList: [
-            {
-              url: this.areaMapUrl
-            }
-          ],
-          showIndicator: false
         })
       }
     }
