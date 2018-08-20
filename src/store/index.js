@@ -4,7 +4,7 @@ let http = axios.create({
 })
 
 axios.interceptors.request.use(config => {
-  config.data = JSON.stringify(config.data)
+  // config.data = config.data
   config.headers = {
     'Content-Type': 'application/x-www-form-urlencoded'
   }
