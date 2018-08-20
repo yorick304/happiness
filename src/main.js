@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import * as wdui from 'wdui'
-
+import './utils/previewImage.js'
 Vue.config.productionTip = false
 Vue.use(wdui)
 /* eslint-disable no-new */
