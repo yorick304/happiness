@@ -13,7 +13,9 @@ axios.interceptors.request.use(config => {
 })
 export const Store = {
   async fetchSignture(ops) {
-    let res = await axios.post(ops && ops.url, qs.stringify(ops.param))
+    let res = await axios.post(ops && ops.url, {
+      url: qs.stringify(ops.param.url)
+    })
     // let res = await http({
     //   url: ops && ops.url,
     //   method: 'post',
