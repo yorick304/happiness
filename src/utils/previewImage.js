@@ -138,7 +138,6 @@
         }
         var text = document.createElement('div');   //当前张数/总张数--文本标签
         this.$text = text;
-        this.$text.className += 'previewImage-text';
         this.container = this.imgStatusCache[this.cIndex] = {elem:this.$container,x:this.winw,y:0,m:0,my:0,scale:1,scalem:1}; //存储容器状态
         this.box = this.imgStatusCache[this.bIndex] = {elem:this.$box,x:0,y:0,m:0,my:0,scale:1,scalem:1};   //存储图片容器状态
         this.urls.forEach(function(v,i){    //图片

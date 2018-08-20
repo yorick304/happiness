@@ -15,7 +15,7 @@ export default {
       if (res.ret==200) {
         let data = res.data
         wx.config({
-          debug: false,
+          debug: true,
           appId: 'wx39cfe2803524d9df',
           timestamp: data.timestamp,
           nonceStr: data.nonceStr,
