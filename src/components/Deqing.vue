@@ -245,6 +245,7 @@
   require('swiper/dist/css/swiper.css')
   import { swiper, swiperSlide } from 'vue-awesome-swiper'
   import FooterNav from './common/FooterNav.vue'
+  import touchjs from '../utils/touch.js'
   export default {
     name: 'Deqing',
     components: {
@@ -292,8 +293,20 @@
               url: this.areaMapUrl
             }
           ],
-          showIndicator: false
+          showIndicator: false,
+          onShow() {
+            let $targetObj = document.querySelector(".wd-imagepreview-item").querySelector('img')
+            touchjs.init($targetObj, (left, top, scale, rotate) => {
+              $targetObj.style['left'] = left
+              $targetObj.style['top'] = top
+              $targetObj.style['transform'] = 'scale(' + scale + ') rotate(' + rotate + 'deg)'
+              $targetObj.style['-webkit-transform'] = 'scale(' + scale + ') rotate(' + rotate + 'deg)'
+            })
+            touchjs.drag($targetObj)
+            touchjs.scale($targetObj)
+          }
         })
+        
       }
     }
   }
