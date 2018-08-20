@@ -11,7 +11,7 @@ export default {
   created() {
 
     let hrefParam = decodeURIComponent(window.location.href)
-    Store.fetchSignture({ url: 'http://wechat.viicb.com/?service=App.Weixin.GetJsSign', param: {url: hrefParam,appId: 'wx39cfe2803524d9df'}}).then((res) => {
+    Store.fetchSignture({ url: 'http://wechat.viicb.com/?service=App.Weixin.GetJsSign', param: {url: hrefParam}}).then((res) => {
       if (res.ret==200) {
         let data = res.data
         wx.config({
