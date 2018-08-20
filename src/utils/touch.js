@@ -42,7 +42,7 @@ export default {
             this.curStatus = 1
             currentScale = ev.scale - 1
             currentScale = initialScale + currentScale
-            if (currentScale <= 1) {
+            if (currentScale < 1) {
                 this.scaleVal = 1
                 $targetObj.style['left'] = 0
                 $targetObj.style['top'] = 0
