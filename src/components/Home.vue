@@ -1,10 +1,8 @@
 <template>
   <div class="h-wrap">
-    <!-- <img src="../assets/video.jpg" alt="" style="width: 100%;
-    position: absolute;" v-if="show"> -->
-    <video class="video" controls="controls" poster="http://si.geilicdn.com/resource-220b00000165465240420a02853e_750_422.jpg">
+    <!-- <video class="video" controls="controls" poster="http://si.geilicdn.com/resource-220b00000165465240420a02853e_750_422.jpg">
       <source src="../assets/common/info2.mp4" type="video/mp4">
-    </video>
+    </video> -->
     <div class="bottom">
       <img src="//si.geilicdn.com/resource-12ca0000016557c0824f0a02853e-unadjust_750_915.png" width="100%" alt="">
       <div class="button" @click="toRegional">
