@@ -15,7 +15,9 @@
         杭州都市圈是全国最有竞争力的城市群，先进制造业和现代服务业发达。华夏幸福重点在嘉善、南浔、德清、南湖等地打造产业新城。
       </p>
       <div class="r-d-content-cluster">
-        <img class="cluster-map" src="//si.geilicdn.com/resource-1f7b000001655c862fb60a02853e-unadjust_642_670.png" width="95%" alt="">
+        <div style="position:relative;overflow: hidden;width: 100%;" id="imgBox">
+          <img class="cluster-map" src="//si.geilicdn.com/resource-1f7b000001655c862fb60a02853e-unadjust_642_670.png" width="95%" alt="" @click="areaMap">
+        </div>
         <ul class="items">
           <li class="item-wrap" @click="toDetail(0)">
             <div class="item">
@@ -268,8 +270,10 @@
 </style>
 
 <script>
+  import previewMixin from '../utils/previewMixin.js'
   export default {
     name: 'Regional',
+    mixins: [previewMixin],
     created() {
       document.body.scrollTop = 0
       document.documentElement.scrollTop = 0
