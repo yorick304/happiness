@@ -21,8 +21,15 @@
               <img class="item-logo" :src="item.imageSmall" alt="">
               <div class="item-content">
                 <span class="item-title">{{item.title}}</span>
-                <span class="item-detail" style="margin-top: 10px" v-for="(content, idx) in item.intro">
-                  {{content}}
+                <span class="item-detail" :class="{'first-item': idx == 0}" v-for="(content, idx) in item.intro">
+                  <template v-for="(str, ide) in content">
+                    <span v-if="ide%2 != 0"></span>
+                    {{str}}
+                  </template>
+                  
+                  <!-- 机器人
+                  <span></span>
+                  生物医药 -->
                 </span>
                 <span class="detail-tip">详情</span>
               </div>
@@ -114,6 +121,9 @@
                   display: -webkit-box;
                   -webkit-box-orient: vertical;
                   -webkit-line-clamp: 1;
+                  &.first-item {
+                    margin-top: 20px;
+                  }
                   span {
                     display: inline-block;
                     width: 1px;/*no*/
