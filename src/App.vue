@@ -8,7 +8,15 @@
 import {Store} from './store/index.js'
 export default {
   name: 'App',
-  created() {
+  mounted() {
+    if (window.IndexData && !window.IndexData.hasIndexPage) {
+      this.$router.push({path:'/Regional', query:{showBack: 0}})
+      window.history.pushState(null, null, document.URL)
+      window.addEventListener('popstate', function () {
+          history.pushState(null, null, document.URL)
+      })
+    }
+    let share = window.IndexData.share
     let hrefParam = window.location.href
     Store.fetchSignture({ url: 'http://wechat.viicb.com/?service=App.Weixin.GetJsSign', param: {url: hrefParam}}).then((res) => {
       if (res.ret==200) {
@@ -28,10 +36,10 @@ export default {
         })
         wx.ready(function () {
           var shareData = {
-            title: '杭州区域产业新城',
+            title: share.title,
             link: window.location.href,
-            desc: '华夏幸福重点在嘉善、南浔、德清、南湖等地打造产业新城',
-            imgUrl: 'https://si.geilicdn.com/resource-211c0000016546f8a23e0a02853e-unadjust_100_100.png'
+            desc: share.desc,
+            imgUrl: share.image
           };
           wx.onMenuShareAppMessage(shareData)
           wx.onMenuShareTimeline(shareData)
@@ -39,15 +47,6 @@ export default {
         })
       }
     })
-  },
-  mounted() {
-    if (window.IndexData && !window.IndexData.hasIndexPage) {
-      this.$router.push({path:'/Regional', query:{showBack: 0}})
-      window.history.pushState(null, null, document.URL)
-      window.addEventListener('popstate', function () {
-          history.pushState(null, null, document.URL)
-      })
-    }
   }
 }
 </script>
