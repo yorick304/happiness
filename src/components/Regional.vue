@@ -2,92 +2,27 @@
   <div class="r-wrap">
     <div class="r-header">
       <img src="//si.geilicdn.com/resource-5a180000016542d865e10a026860_750_352.jpg" alt="" width="100%">
-      <span class="go-back" @click="goBack"></span>
+      <span v-if="showBack" class="go-back" @click="goBack"></span>
     </div>
     <div class="r-d-content">
       <div class="d-content-title">
-        杭州区域产业新城
+        {{IndexData && IndexData.cityName}}
       </div>
-      <p class="content-str content-str-first">
-        杭州市是浙江省省会和长三角中心城市，面积16596平方公里，人口946.8万人，2017年地区生产总值12556亿元。杭州创新发展水平居全国城市前列，被评为“十大创新城市”和“十大智慧城市”。
-      </p>
-      <p class="content-str">
-        杭州都市圈是全国最有竞争力的城市群，先进制造业和现代服务业发达。华夏幸福重点在嘉善、南浔、德清、南湖等地打造产业新城。
+      <p class="content-str" :class="{'content-str-first':index ==0}" v-for="(item, index) in IndexData.paragraphs">
+        {{item}}
       </p>
       <div class="r-d-content-cluster">
         <div style="position:relative;overflow: hidden;width: 100%;" id="imgBox">
           <img class="cluster-map" src="//si.geilicdn.com/resource-1f7b000001655c862fb60a02853e-unadjust_642_670.png" width="95%" alt="" @click="areaMap">
         </div>
         <ul class="items">
-          <li class="item-wrap" @click="toDetail(0)">
+          <li class="item-wrap" @click="toDetail(item.areaId)" v-for="(item, index) in regionals">
             <div class="item">
-              <img class="item-logo" src="//si.geilicdn.com/resource-5a8e0000016542d8a3100a026860_312_180.jpg" alt="">
+              <img class="item-logo" :src="item.imageSmall" alt="">
               <div class="item-content">
-                <span class="item-title">嘉善产业新城</span>
-                <span class="item-detail" style="margin-top: 10px">
-                  科技创新
-                </span>
-                <span class="item-detail">
-                  智能网联车
-                </span>
-                <span class="item-detail">
-                  金融商贸
-                </span>
-                <span class="detail-tip">详情</span>
-              </div>
-            </div>
-          </li>
-          <li class="item-wrap" @click="toDetail(1)">
-            <div class="item">
-              <img class="item-logo" src="//si.geilicdn.com/resource-5bd30000016542d933ad0a026860_312_180.jpg" alt="">
-              <div class="item-content">
-                <span class="item-title">南浔产业新城</span>
-                <span class="item-detail" style="margin-top: 10px">
-                  机器人
-                  <span></span>
-                  生物医药
-                </span>
-                <span class="item-detail">
-                  新能源汽车及零部件
-                </span>
-                <span class="item-detail">
-                  专用装备
-                </span>
-                <span class="detail-tip">详情</span>
-              </div>
-            </div>
-          </li>
-          <li class="item-wrap" @click="toDetail(2)">
-            <div class="item">
-              <img class="item-logo" src="//si.geilicdn.com/resource-49c10000016542d979d50a028841_312_180.jpg" alt="">
-              <div class="item-content">
-                <span class="item-title">德清产业新城</span>
-                <span class="item-detail" style="margin-top: 10px">
-                  工业智能控制
-                </span>
-                <span class="item-detail">
-                  通用航空
-                </span>
-                <span class="item-detail">
-                  汽车关键零部件
-                </span>
-                <span class="detail-tip">详情</span>
-              </div>
-            </div>
-          </li>
-          <li class="item-wrap" @click="toDetail(3)">
-            <div class="item">
-              <img class="item-logo" src="//si.geilicdn.com/resource-4a6f0000016542d9c1f60a028841_312_180.jpg" alt="">
-              <div class="item-content">
-                <span class="item-title">南湖产业新城</span>
-                <span class="item-detail" style="margin-top: 10px">
-                  专用装备
-                </span>
-                <span class="item-detail">
-                  智能终端
-                </span>
-                <span class="item-detail">
-                  医疗器械
+                <span class="item-title">{{item.title}}</span>
+                <span class="item-detail" style="margin-top: 10px" v-for="(content, idx) in item.intro">
+                  {{content}}
                 </span>
                 <span class="detail-tip">详情</span>
               </div>
@@ -278,6 +213,17 @@
       document.body.scrollTop = 0
       document.documentElement.scrollTop = 0
     },
+    computed: {
+      showBack() {
+        return Number(this.$route.query.showBack)
+      },
+      IndexData() {
+        return window.IndexData && window.IndexData
+      },
+      regionals() {
+        return this.IndexData && this.IndexData.regionals
+      }
+    },
     methods: {
       goBack() {
         this.$router.push({
@@ -285,40 +231,12 @@
         })
       },
       toDetail(itemId) {
-        switch(itemId) {
-          case 0:
-            this.$router.push({
-              path: `/Regional/Jiashan`,
-              query: {
-                itemId: itemId
-              }
-            })
-          break;
-          case 1:
-            this.$router.push({
-              path: `/Regional/Nanxun/`,
-              query: {
-                itemId: itemId
-              }
-            })
-          break;
-          case 2:
-            this.$router.push({
-              path: `/Regional/Deqing`,
-              query: {
-                itemId: itemId
-              }
-            })
-          break;
-          case 3:
-            this.$router.push({
-              path: `/Regional/Nanhu`,
-              query: {
-                itemId: itemId
-              }
-            })
-          break;
-        }
+        this.$router.push({
+          path: `/Regional/Detail`,
+          query: {
+            itemId: itemId
+          }
+        })
       }
     }
   }

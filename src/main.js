@@ -5,12 +5,21 @@ import App from './App'
 import router from './router'
 import * as wdui from 'wdui'
 import './utils/previewImage.js'
+import {Store} from './store/index.js'
 Vue.config.productionTip = false
+
 Vue.use(wdui)
 /* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  router,
-  components: { App },
-  template: '<App/>'
+Store.indexData().then((data) => {
+  window.IndexData = data
+  new Vue({
+    el: '#app',
+    router,
+    render() {
+      return (
+        <App/>
+      )
+    }
+  })
 })
+

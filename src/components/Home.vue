@@ -1,12 +1,12 @@
 <template>
   <div class="h-wrap">
-    <video class="video" controls="controls" poster="http://si.geilicdn.com/resource-220b00000165465240420a02853e_750_422.jpg">
-      <source src="../assets/common/info2.mp4" type="video/mp4">
+    <video class="video" controls="controls" :poster="video && video.poster">
+      <source :src="video && video.src" type="video/mp4">
     </video>
     <div class="bottom">
       <img src="//si.geilicdn.com/resource-12ca0000016557c0824f0a02853e-unadjust_750_915.png" width="100%" alt="">
       <div class="button" @click="toRegional">
-        <span style="flex: auto;">杭州区域产业新城</span>
+        <span style="flex: auto;">{{cityName}}</span>
       </div>
     </div>
   </div>
@@ -69,17 +69,24 @@
     name: 'Home',
     data() {
       return {
-        show: true
+        show: true,
+        video: null,
+        cityName: ''
       }
     },
     created() {
       document.body.scrollTop = 0
       document.documentElement.scrollTop = 0
     },
+    mounted() {
+      this.video = window.IndexData && window.IndexData.video
+      this.cityName =  window.IndexData && window.IndexData.cityName
+    },
     methods: {
       toRegional() {
         this.$router.push({
-          path: '/Regional'
+          path: '/Regional',
+          query:{showBack: 1}
         })
       },
       start() {

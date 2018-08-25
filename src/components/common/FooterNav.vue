@@ -1,8 +1,8 @@
 <template>
   <div class="nav-wrap">
-    <span v-for="(item,index) in navs" :key="index" class="item-wrap" @click="nav(index)">
-        {{item}}
-        <span class="under-line" v-if="index == itemId"></span>
+    <span v-for="(item,index) in navs" :key="index" class="item-wrap" @click="nav(item.areaId)">
+        {{item && item.subTitle}}
+        <span class="under-line" v-if="item.areaId  == itemId"></span>
         <span class="line" v-if="index != (navs.length-1)"></span>
     </span>
   </div>
@@ -49,47 +49,24 @@
   export default {
     name: 'FooterNav',
     props: ['itemId'],
-    data() {
-      return {
-        navs: ['嘉善', '南浔', '德清', '南湖']
+    computed: {
+      navs() {
+        let regionals = window.IndexData && window.IndexData.regionals
+        let temps = []
+        regionals.forEach((regional)=>{
+          temps.push({subTitle: regional.subTitle,areaId: regional.areaId})
+        })
+        return temps
       }
     },
     methods: {
       nav(itemId) {
-        switch(itemId) {
-          case 0:
-            this.$router.push({
-              path: `/Regional/Jiashan`,
-              query: {
-                itemId: itemId
-              }
-            })
-          break;
-          case 1:
-            this.$router.push({
-              path: `/Regional/Nanxun/`,
-              query: {
-                itemId: itemId
-              }
-            })
-          break;
-          case 2:
-            this.$router.push({
-              path: `/Regional/Deqing`,
-              query: {
-                itemId: itemId
-              }
-            })
-          break;
-          case 3:
-            this.$router.push({
-              path: `/Regional/Nanhu`,
-              query: {
-                itemId: itemId
-              }
-            })
-          break;
-        }
+        this.$router.push({
+          path: `/Regional/Detail`,
+          query: {
+            itemId: itemId
+          }
+        })
       }
     }
   }

@@ -6,6 +6,7 @@ import Jiashan from '@/components/Jiashan'
 import Nanxun from '@/components/Nanxun'
 import Deqing from '@/components/Deqing'
 import Nanhu from '@/components/Nanhu'
+import Detail from '@/components/Detail'
 
 Vue.use(Router)
 
@@ -17,29 +18,14 @@ export default new Router({
       component: Home
     },
     {
+      path: '/Regional/Detail',
+      name: 'Detail',
+      component: Detail
+    },
+    {
       path: '/Regional',
       name: 'Regional',
       component: Regional
-    },
-    {
-      path: '/Regional/Jiashan',
-      name: 'Jiashan',
-      component: Jiashan
-    },
-    {
-      path: '/Regional/Nanxun',
-      name: 'Nanxun',
-      component: Nanxun
-    },
-    {
-      path: '/Regional/Deqing',
-      name: 'Deqing',
-      component: Deqing
-    },
-    {
-      path: '/Regional/Nanhu',
-      name: 'Nanhu',
-      component: Nanhu
     }
   ]
 })

@@ -39,6 +39,15 @@ export default {
         })
       }
     })
+  },
+  mounted() {
+    if (window.IndexData && !window.IndexData.hasIndexPage) {
+      this.$router.push({path:'/Regional', query:{showBack: 0}})
+      window.history.pushState(null, null, document.URL)
+      window.addEventListener('popstate', function () {
+          history.pushState(null, null, document.URL)
+      })
+    }
   }
 }
 </script>
