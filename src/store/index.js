@@ -9,8 +9,9 @@ export const Store = {
     let res = await axios.post(ops && ops.url, qs.stringify(ops.param))
     return res.data
   },
-  async indexData() {
-    // let res = await axios.get('static/moke.json')
-    return moke
+  async indexData(ops) {
+    let res = await axios.get(ops.url)
+    return res.data
+    // return moke.data
   }
 }

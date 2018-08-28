@@ -31,7 +31,7 @@
         {{industryEnv && industryEnv.title}}
       </div>
       <swiper :options="swiperOption" style="margin: 0 auto; margin-left: 15px;margin-right: 15px;">
-        <div class="swiper-slide" v-for="banner in (industryEnv && industryEnv.banners)">
+        <div class="swiper-slide" v-for="banner in banners">
           <img v-lazy="banner" width="100%">
         </div>
         <div class="swiper-pagination" slot="pagination"></div>
@@ -233,7 +233,7 @@
         return this.detail && this.detail.area && this.detail.area.title
       },
       areaMapStr() {
-        return this.detail && this.detail.area && this.detail.area.image
+        return this.detail && this.detail.area && this.detail.area.image && this.detail.area.image[0] && this.detail.area.image[0].url
       },
       paragraphs() {
         return this.detail && this.detail.area && this.detail.area.paragraphs
@@ -243,6 +243,11 @@
       },
       industryEnv() {
         return this.detail && this.detail.industryEnv
+      },
+      banners() {
+        return this.industryEnv.map((item) => {
+          return item.url
+        })
       },
       industryColony() {
         return this.detail && this.detail.industryColony

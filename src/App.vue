@@ -9,7 +9,7 @@ import {Store} from './store/index.js'
 export default {
   name: 'App',
   mounted() {
-    if (window.IndexData && !window.IndexData.hasIndexPage) {
+    if (window.IndexData && window.IndexData.hasIndexPage == 0) {
       this.$router.push({path:'/Regional', query:{showBack: 0}})
       window.history.pushState(null, null, document.URL)
       window.addEventListener('popstate', function () {
@@ -39,7 +39,7 @@ export default {
             title: share.title,
             link: window.location.href,
             desc: share.desc,
-            imgUrl: share.image
+            imgUrl: share.image && share.image[0] && share.image[0].url
           };
           wx.onMenuShareAppMessage(shareData)
           wx.onMenuShareTimeline(shareData)

@@ -1,6 +1,6 @@
 <template>
   <div class="h-wrap">
-    <video class="video" controls="controls" :poster="video && video.poster">
+    <video class="video" controls="controls" :poster="video && video.poster && video.poster[0] &&  video.poster[0].url">
       <source :src="video && video.src" type="video/mp4">
     </video>
     <div class="bottom">
@@ -79,7 +79,7 @@
       document.documentElement.scrollTop = 0
     },
     mounted() {
-      this.video = window.IndexData && window.IndexData.video
+      this.video = JSON.parse(window.IndexData && window.IndexData.video)
       this.cityName =  window.IndexData && window.IndexData.cityName
     },
     methods: {

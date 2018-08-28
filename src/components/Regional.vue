@@ -18,7 +18,7 @@
         <ul class="items">
           <li class="item-wrap" @click="toDetail(item.areaId)" v-for="(item, index) in regionals">
             <div class="item">
-              <img class="item-logo" :src="item.imageSmall" alt="">
+              <img class="item-logo" :src="item.imageSmall && item.imageSmall[0] && item.imageSmall[0].url" alt="">
               <div class="item-content">
                 <span class="item-title">{{item.title}}</span>
                 <span class="item-detail" :class="{'first-item': idx == 0}" v-for="(content, idx) in item.intro">
