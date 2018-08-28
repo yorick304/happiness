@@ -79,7 +79,7 @@
       document.documentElement.scrollTop = 0
     },
     mounted() {
-      this.video = JSON.parse(window.IndexData && window.IndexData.video)
+      this.video = window.IndexData && window.IndexData.video
       this.cityName =  window.IndexData && window.IndexData.cityName
     },
     methods: {
