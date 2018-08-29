@@ -35,7 +35,7 @@ function JSONHandle(json) {
 Store.indexData(indexParam).then((data) => {
   window.IndexData = data.data
   JSONHandle(window.IndexData)
-  console.log(window.IndexData)
+  document.title = window.IndexData && window.IndexData.cityName
   new Vue({
     el: '#app',
     router,
