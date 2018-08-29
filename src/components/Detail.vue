@@ -25,7 +25,7 @@
       </div>
       <div class="transportation">
 
-        <span class="transportation-str" v-for="(item, index) in (traffic && traffic.paragraphs)"><em>{{item.label}}：</em>{{item.text}}</span>
+        <span class="transportation-str" v-for="(item, index) in (traffic && traffic.paragraphs)"><em>{{item.lable}}：</em>{{item.text}}</span>
       </div>
       <div class="area-title-tip">
         {{industryEnv && industryEnv.title}}
@@ -213,7 +213,7 @@
         let itemId = this.itemId
         let regionals = window.IndexData && window.IndexData.regionals
         return regionals && regionals.filter((ele) => {
-          return ele.areaId == itemId
+          return ele.id == itemId
         })[0].detail
       },
       regional() {

@@ -54,7 +54,7 @@
         let regionals = window.IndexData && window.IndexData.regionals
         let temps = []
         regionals.forEach((regional)=>{
-          temps.push({subTitle: regional.subTitle,areaId: regional.areaId})
+          temps.push({subTitle: regional.subTitle, areaId: regional.id})
         })
         return temps
       }
