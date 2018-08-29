@@ -57,7 +57,7 @@
           <img class="industry-left" :src="item.icon" height="57px" width="57px"/>
           <div class="industry-right">
             <span class="industry-title">{{item.title}}</span>
-            <span class="industry-str" v-for="(paragraph, idx) in (item && item.paragraphs)">{{paragraph}}</span>
+            <span class="industry-str">{{item.paragraphs}}</span>
           </div>
         </div>
       </div>
