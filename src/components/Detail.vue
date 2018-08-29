@@ -220,7 +220,7 @@
         let itemId = this.$route.query.itemId
         let regionals = window.IndexData && window.IndexData.regionals
         return regionals && regionals.filter((ele) => {
-          return ele.areaId == itemId
+          return ele.id == itemId
         })[0]
       },
       itemId() {

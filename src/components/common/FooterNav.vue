@@ -1,8 +1,8 @@
 <template>
   <div class="nav-wrap">
-    <span v-for="(item,index) in navs" :key="index" class="item-wrap" @click="nav(item.areaId)">
+    <span v-for="(item,index) in navs" :key="index" class="item-wrap" @click="nav(item.id)">
         {{item && item.subTitle}}
-        <span class="under-line" v-if="item.areaId  == itemId"></span>
+        <span class="under-line" v-if="item.id  == itemId"></span>
         <span class="line" v-if="index != (navs.length-1)"></span>
     </span>
   </div>
@@ -54,7 +54,7 @@
         let regionals = window.IndexData && window.IndexData.regionals
         let temps = []
         regionals.forEach((regional)=>{
-          temps.push({subTitle: regional.subTitle, areaId: regional.id})
+          temps.push({subTitle: regional.subTitle, id: regional.id})
         })
         return temps
       }
