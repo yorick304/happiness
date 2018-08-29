@@ -16,7 +16,7 @@
           <img class="cluster-map" src="//si.geilicdn.com/resource-1f7b000001655c862fb60a02853e-unadjust_642_670.png" width="95%" alt="" @click="areaMap">
         </div>
         <ul class="items">
-          <li class="item-wrap" @click="toDetail(item.areaId)" v-for="(item, index) in regionals">
+          <li class="item-wrap" @click="toDetail(item.id)" v-for="(item, index) in regionals">
             <div class="item">
               <img class="item-logo" :src="item.imageSmall && item.imageSmall[0] && item.imageSmall[0].url" alt="">
               <div class="item-content">
