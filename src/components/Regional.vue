@@ -1,7 +1,7 @@
 <template>
   <div class="r-wrap">
     <div class="r-header">
-      <img src="//si.geilicdn.com/resource-5a180000016542d865e10a026860_750_352.jpg" alt="" width="100%">
+      <img :src="IndexData && IndexData.indexMap" alt="" width="100%">
       <span v-if="showBack" class="go-back" @click="goBack"></span>
     </div>
     <div class="r-d-content">
@@ -13,7 +13,7 @@
       </p>
       <div class="r-d-content-cluster">
         <div style="position:relative;overflow: hidden;width: 100%;" id="imgBox">
-          <img class="cluster-map" src="{{IndexData && IndexData.cityMap && IndexData.cityMap[0] && IndexData.cityMap[0].url}}" width="95%" alt="" @click="areaMap">
+          <img class="cluster-map" :src="IndexData && IndexData.cityMap && IndexData.cityMap[0] && IndexData.cityMap[0].url" width="95%" alt="" @click="areaMap">
         </div>
         <ul class="items">
           <li class="item-wrap" @click="toDetail(item.id)" v-for="(item, index) in regionals">
