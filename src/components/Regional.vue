@@ -1,7 +1,7 @@
 <template>
   <div class="r-wrap">
     <div class="r-header">
-      <img :src="IndexData && IndexData.indexMap" alt="" width="100%">
+      <img :src="IndexData && IndexData.indexMap && IndexData.indexMap[0] && IndexData.indexMap[0].url" alt="" width="100%">
       <span v-if="showBack" class="go-back" @click="goBack"></span>
     </div>
     <div class="r-d-content">
