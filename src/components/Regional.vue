@@ -13,7 +13,7 @@
       </p>
       <div class="r-d-content-cluster">
         <div style="position:relative;overflow: hidden;width: 100%;" id="imgBox">
-          <img class="cluster-map" src="//si.geilicdn.com/resource-1f7b000001655c862fb60a02853e-unadjust_642_670.png" width="95%" alt="" @click="areaMap">
+          <img class="cluster-map" src="{{IndexData && IndexData.cityMap && IndexData.cityMap[0] && IndexData.cityMap[0].url}}" width="95%" alt="" @click="areaMap">
         </div>
         <ul class="items">
           <li class="item-wrap" @click="toDetail(item.id)" v-for="(item, index) in regionals">

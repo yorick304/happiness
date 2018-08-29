@@ -1,7 +1,7 @@
 <template>
   <div class="j-wrap" :style="{backgroundImage:'url('+require('../assets/bg2.png')+')'}">
     <div class="h-wrap">
-      <img src="//si.geilicdn.com/resource-32ce0000016542c6c9410a02685e_690_420.jpg" alt="" width="100%">
+      <img src="{{imageBig}}" alt="" width="100%">
       <span class="go-back" @click="goBack"></span>
     </div>
     <div class="area-wrap">
@@ -243,6 +243,9 @@
       },
       industryEnv() {
         return this.detail && this.detail.industryEnv
+      },
+      imageBig() {
+        return this.detail && this.detail.imageBig && this.detail.imageBig[0] && this.detail.imageBig[0].url
       },
       banners() {
         return this.industryEnv.map((item) => {
