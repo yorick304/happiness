@@ -18,12 +18,14 @@
     width: 100%;
     z-index: 10;
     box-shadow: 0px 0px 9px #2d2c2e33;
+    overflow-x: auto;
     .item-wrap {
       flex: 1;
       text-align: center;
       font-size: 15px;/*no*/
       color: #333333;
       position: relative;
+      min-width: 140px;
       .line {
         display: inline-block;
         height: 50px;
