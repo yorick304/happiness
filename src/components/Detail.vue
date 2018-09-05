@@ -343,7 +343,7 @@
         let footerNav = seft.getFooterNav
         let length = footerNav.length
         let tempIndex = 0
-        if ( Math.abs(X) > Math.abs(Y) && X > 120 ) {
+        if ( Math.abs(X) > Math.abs(Y) && X > 140 ) {
           if (footerNav && footerNav[0].cur) {
             return
           } else {
@@ -363,7 +363,7 @@
             })
 
           }
-　　　　} else if ( Math.abs(X) > Math.abs(Y) && X < -120 ) {
+　　　　} else if ( Math.abs(X) > Math.abs(Y) && X < -140 ) {
           if (footerNav && footerNav[length-1].cur) {
             return
           } else {
@@ -384,9 +384,6 @@
           }
 　　　　}
       })
-      // areaWrap.addEventListener('touchmove', debouce(function(e) {
-          
-      //   },800,true))
     },
     methods: {
       goBack() {
