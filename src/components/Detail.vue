@@ -200,6 +200,30 @@
   import { swiper, swiperSlide } from 'vue-awesome-swiper'
   import FooterNav from './common/FooterNav.vue'
   import previewMixin from '../utils/previewMixin.js'
+  function debouce(func, delay, immediate){
+    var timer = null
+    return function() {
+        var context = this
+        var args = arguments
+        if(timer) clearTimeout(time)
+        if(immediate){
+            //根据距离上次触发操作的时间是否到达delay来决定是否要现在执行函数
+            var doNow = !timer;
+            //每一次都重新设置timer，就是要保证每一次执行的至少delay秒后才可以执行
+            timer = setTimeout(function(){
+              timer = null;
+            },delay)
+            //立即执行
+            if(doNow){
+              func.apply(context,args)
+            }
+        } else {
+          timer = setTimeout(function(){
+            func.apply(context,args);
+          },delay)
+        }
+    }
+  }
   export default {
     name: 'Detail',
     mixins: [previewMixin],
@@ -254,6 +278,17 @@
       },
       industryColony() {
         return this.detail && this.detail.industryColony
+      },
+      getFooterNav() {
+        let regionals = window.IndexData && window.IndexData.regionals
+        let temps = regionals.map((item) => {
+          if (item.id == this.$route.query.itemId) {
+            return {id: item.id, cur: true}
+          } else {
+            return {id: item.id, cur: false}
+          }
+        })
+        return temps
       }
     },
     data() {
@@ -279,7 +314,52 @@
       document.documentElement.scrollTop = 0
     },
     mounted() {
-    
+      let startX, startY
+      let moveEndX, moveEndY
+      let X, Y
+      let seft = this
+      let areaWrap = document.querySelector('.area-wrap')
+      areaWrap.addEventListener('touchstart', function(e) {
+        startX = e.changedTouches[0].pageX
+        startY = e.changedTouches[0].pageY
+      })
+      areaWrap.addEventListener('touchend', function(e) {
+        moveEndX = e.changedTouches[0].pageX
+        moveEndY = e.changedTouches[0].pageY
+        X = moveEndX - startX
+        Y = moveEndY - startY
+        let footerNav = seft.getFooterNav
+        let length = footerNav.length
+        let tempIndex = 0
+        if ( Math.abs(X) > Math.abs(Y) && X > 0 ) {
+          if (footerNav && footerNav[0].cur) {
+            return
+          } else {
+            for (let i=0; i<footerNav.length; i++) {
+              if (footerNav[i].cur) {
+                tempIndex = i
+                break;
+              }
+            }
+            window.location.href =`#/Regional/Detail?itemId=${footerNav[tempIndex-1].id}`
+          }
+　　　　} else if ( Math.abs(X) > Math.abs(Y) && X < 0 ) {
+          if (footerNav && footerNav[length-1].cur) {
+            return
+          } else {
+            for (let i=0; i<footerNav.length; i++) {
+              if (footerNav[i].cur) {
+                tempIndex = i
+                break;
+              }
+            }
+            window.location.href =`#/Regional/Detail?itemId=${footerNav[tempIndex+1].id}`
+          }
+　　　　}
+      })
+      // areaWrap.addEventListener('touchmove', debouce(function(e) {
+          
+      //   },800,true))
     },
     methods: {
       goBack() {

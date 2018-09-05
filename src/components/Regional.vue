@@ -85,6 +85,8 @@
           padding-left: 18px;
           overflow: hidden;
           width: 100%;
+          margin-top: 6px;
+          // margin-bottom: 32px;
           .item-wrap {
             float: left;
             overflow: hidden;
@@ -98,15 +100,15 @@
             .item {
               display: flex;
               flex-direction: column;
-              padding-bottom: 30px;
+              padding-bottom: 66px;
               position: relative;
               
               .item-logo {
                 height: 180px;
+                border-radius: 2px;/*no*/
               }
               .item-content {
-                margin-left: 24px;
-                margin-top: 30px;
+                margin-top: 26px;
                 position: relative;
                 .item-title {
                   font-size: 15px;/*no*/
@@ -115,14 +117,14 @@
                 .item-detail {
                   font-size: 12px;/*no*/
                   color: #666666;
-                  margin-top: 14px;
+                  margin-top: 4px;
                   overflow: hidden;
                   text-overflow: ellipsis;
                   display: -webkit-box;
                   -webkit-box-orient: vertical;
                   -webkit-line-clamp: 1;
                   &.first-item {
-                    margin-top: 20px;
+                    margin-top: 8px;
                   }
                   span {
                     display: inline-block;
@@ -145,7 +147,7 @@
                     height: 6px;/*no*/
                     border-right: 1px solid #bf0008;/*no*/
                     border-bottom: 1px solid #bf0008;/*no*/
-                    right: -18px;
+                    right: -14px;
                     top: 10px;
                     position: absolute;
                     transform: rotate(-45deg);

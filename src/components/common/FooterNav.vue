@@ -1,6 +1,6 @@
 <template>
   <div class="nav-wrap">
-    <span v-for="(item,index) in navs" :key="index" class="item-wrap" @click="nav(item.id)">
+    <span v-for="(item,index) in navs" :key="index" class="item-wrap" :class="{'current': item.id  == itemId}" @click="nav(item.id)">
         {{item && item.subTitle}}
         <span class="under-line" v-if="item.id  == itemId"></span>
         <span class="line" v-if="index != (navs.length-1)"></span>
@@ -61,6 +61,14 @@
         return temps
       }
     },
+    watch: {
+      itemId() {
+        this.swipe()
+      }
+    },
+    mounted() {
+      this.swipe()
+    },
     methods: {
       nav(itemId) {
         this.$router.push({
@@ -69,6 +77,29 @@
             itemId: itemId
           }
         })
+      },
+      swipe() {
+        let itemWrap = document.querySelectorAll('.item-wrap')
+        let allWidth = 0
+        let clientWidth = document.documentElement.clientWidth
+        let regionals = window.IndexData && window.IndexData.regionals
+        let tempIndex = 0
+        for (let k=0; k<regionals.length; k++) {
+          if (regionals[k].id == this.itemId) {
+            tempIndex = k
+            break;
+          }
+        }
+        for (let i=0; i<itemWrap.length; i++) {
+          allWidth += itemWrap[i].clientWidth
+        }
+        let temWidth = itemWrap[tempIndex].clientWidth
+        let oleft = itemWrap[tempIndex].getBoundingClientRect().left
+        if ((oleft*1.0)/clientWidth != 0.5) {
+          let scrollTo = document.querySelector('.nav-wrap').scrollLeft+ oleft
+          scrollTo += -(clientWidth - temWidth)/2
+          document.querySelector('.nav-wrap').scrollTo(`${scrollTo}`, 0)
+        }
       }
     }
   }

@@ -12,6 +12,6 @@ export const Store = {
   async indexData(ops) {
     let res = await axios.get(ops.url)
     return res.data
-    // return moke.data
+    // return moke
   }
 }
