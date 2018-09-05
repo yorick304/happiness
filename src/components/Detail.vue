@@ -54,7 +54,7 @@
       </div>
       <div class="industry-wrap">
         <div class="industry-item" v-for="(item, index) in (industryColony && industryColony.sections)">
-          <img class="industry-left" :src="item.icon" height="57px" width="57px"/>
+          <img class="industry-left" :src="item.icon && item.icon.url" height="57px" width="57px"/>
           <div class="industry-right">
             <span class="industry-title">{{item.title}}</span>
             <span class="industry-str">{{item.paragraphs}}</span>
