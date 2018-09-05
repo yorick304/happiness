@@ -145,7 +145,7 @@
                   color: #bf0008;
                   position: absolute;
                   top: 4px;
-                  right: 28px;
+                  right: 16px;
                   &:after {
                     content: "";
                     width: 6px;/*no*/
