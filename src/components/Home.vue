@@ -81,6 +81,9 @@
     mounted() {
       this.video = window.IndexData && window.IndexData.video
       this.cityName =  window.IndexData && window.IndexData.cityName
+      if (!Number(window.IndexData && window.IndexData && window.IndexData.hasIndexPage)) {
+        this.toRegional()
+      }
     },
     methods: {
       toRegional() {

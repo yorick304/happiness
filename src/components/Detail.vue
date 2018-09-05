@@ -31,7 +31,7 @@
       </div>
       <swiper :options="swiperOption" style="margin: 0 auto; margin-left: 15px;margin-right: 15px;">
         <div class="swiper-slide" v-for="banner in banners">
-          <img v-lazy="banner" width="100%">
+          <img v-lazy="banner" width="100%" class="banner">
         </div>
         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
@@ -326,10 +326,16 @@
       let seft = this
       let areaWrap = document.querySelector('.area-wrap')
       areaWrap.addEventListener('touchstart', function(e) {
+        if (e.target.className == 'banner') {
+          return
+        }
         startX = e.changedTouches[0].pageX
         startY = e.changedTouches[0].pageY
       })
       areaWrap.addEventListener('touchend', function(e) {
+        if (e.target.className == 'banner') {
+          return
+        }
         moveEndX = e.changedTouches[0].pageX
         moveEndY = e.changedTouches[0].pageY
         X = moveEndX - startX

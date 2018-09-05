@@ -145,7 +145,7 @@
                   color: #bf0008;
                   position: absolute;
                   top: 4px;
-                  right: 16px;
+                  right: 20px;
                   &:after {
                     content: "";
                     width: 6px;/*no*/
@@ -180,7 +180,7 @@
           }
         }
         .cluster-map {
-          margin: 40px auto 30px;
+          margin: 36px auto 30px;
           display: block;
         }
       }
@@ -232,7 +232,7 @@
     },
     computed: {
       showBack() {
-        return Number(this.$route.query.showBack)
+        return Number(window.IndexData && window.IndexData && window.IndexData.hasIndexPage)
       },
       IndexData() {
         return window.IndexData && window.IndexData
