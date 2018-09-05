@@ -355,8 +355,8 @@
             }
             let hWrap = document.querySelector('.h-wrap')
             let areaWrap = document.querySelector('.area-wrap')
-            hide(hWrap, 0.2)
-            hide(areaWrap, 0.2, function() {
+            hide(hWrap, 0.1)
+            hide(areaWrap, 0.1, function() {
               window.location.href =`#/Regional/Detail?itemId=${footerNav[tempIndex-1].id}`
               hWrap.style.opacity = 1
               areaWrap.style.opacity = 1
@@ -375,8 +375,8 @@
             }
             let hWrap = document.querySelector('.h-wrap')
             let areaWrap = document.querySelector('.area-wrap')
-            hide(hWrap, 0.2)
-            hide(areaWrap, 0.2, function() {
+            hide(hWrap, 0.1)
+            hide(areaWrap, 0.1, function() {
               window.location.href =`#/Regional/Detail?itemId=${footerNav[tempIndex+1].id}`
               hWrap.style.opacity = 1
               areaWrap.style.opacity = 1
