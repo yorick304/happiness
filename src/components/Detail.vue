@@ -46,7 +46,7 @@
       <div class="area-title-tip">
         {{industryColony && industryColony.title}}
       </div>
-      <div class="area-str-wrap" v-for="(item,index) in (industryColony && industryColony.paragraph)">
+      <div class="area-str-wrap" v-for="(item,index) in (industryColony && industryColony.paragraphs)">
         <img src="../assets/common/right.png" alt="">
         <p class="area-str">
           {{item}}

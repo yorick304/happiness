@@ -113,6 +113,11 @@
                 .item-title {
                   font-size: 15px;/*no*/
                   color: #333333;
+                  display: -webkit-box;
+                  -webkit-box-orient: vertical;
+                  -webkit-line-clamp: 1;
+                  overflow: hidden;
+                  padding-right: 42px;
                 }
                 .item-detail {
                   font-size: 12px;/*no*/
