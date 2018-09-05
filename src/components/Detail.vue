@@ -24,7 +24,6 @@
         {{traffic && traffic.title}}
       </div>
       <div class="transportation">
-
         <span class="transportation-str" v-for="(item, index) in (traffic && traffic.paragraphs)"><em>{{item.lable}}：</em>{{item.text}}</span>
       </div>
       <div class="area-title-tip">
@@ -224,6 +223,13 @@
         }
     }
   }
+  function hide(el,offset,cb){
+    var opacity=el.style.opacity || 1
+    setTimeout(function(){
+      el.style.opacity = String(parseFloat(opacity)-offset)
+      parseFloat(el.style.opacity) > 0 ? hide(el,offset,cb) : (cb && cb())
+    }, 17)
+  }
   export default {
     name: 'Detail',
     mixins: [previewMixin],
@@ -331,7 +337,7 @@
         let footerNav = seft.getFooterNav
         let length = footerNav.length
         let tempIndex = 0
-        if ( Math.abs(X) > Math.abs(Y) && X > 0 ) {
+        if ( Math.abs(X) > Math.abs(Y) && X > 150 ) {
           if (footerNav && footerNav[0].cur) {
             return
           } else {
@@ -341,9 +347,17 @@
                 break;
               }
             }
-            window.location.href =`#/Regional/Detail?itemId=${footerNav[tempIndex-1].id}`
+            let hWrap = document.querySelector('.h-wrap')
+            let areaWrap = document.querySelector('.area-wrap')
+            hide(hWrap, 0.2)
+            hide(areaWrap, 0.2, function() {
+              window.location.href =`#/Regional/Detail?itemId=${footerNav[tempIndex-1].id}`
+              hWrap.style.opacity = 1
+              areaWrap.style.opacity = 1
+            })
+
           }
-　　　　} else if ( Math.abs(X) > Math.abs(Y) && X < 0 ) {
+　　　　} else if ( Math.abs(X) > Math.abs(Y) && X < -150 ) {
           if (footerNav && footerNav[length-1].cur) {
             return
           } else {
@@ -353,7 +367,14 @@
                 break;
               }
             }
-            window.location.href =`#/Regional/Detail?itemId=${footerNav[tempIndex+1].id}`
+            let hWrap = document.querySelector('.h-wrap')
+            let areaWrap = document.querySelector('.area-wrap')
+            hide(hWrap, 0.2)
+            hide(areaWrap, 0.2, function() {
+              window.location.href =`#/Regional/Detail?itemId=${footerNav[tempIndex+1].id}`
+              hWrap.style.opacity = 1
+              areaWrap.style.opacity = 1
+            })
           }
 　　　　}
       })
