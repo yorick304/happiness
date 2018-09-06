@@ -1,6 +1,6 @@
 <template>
   <div class="j-wrap" :style="{backgroundImage:'url('+require('../assets/bg2.png')+')'}">
-    <div class="wrap-content">
+    <div class="wrap-content" style="transform-origin: center bottom 0px;">
       <div class="h-wrap">
         <img :src="imageBig" alt="" width="100%">
         <span class="go-back" @click="goBack"></span>
