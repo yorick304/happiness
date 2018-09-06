@@ -364,7 +364,7 @@
         let footerNav = seft.getFooterNav
         let length = footerNav.length
         let tempIndex = 0
-        if ( Math.abs(X) > Math.abs(Y) && X > 140 ) {
+        if ( Math.abs(X) > Math.abs(Y) && X > 110 ) {
           if (footerNav && footerNav[0].cur) {
             wrapContent.style.transform = `translateX(0px)`
             return
@@ -384,7 +384,7 @@
             })
             wrapContent.style.transform = `translateX(0px)`
           }
-　　　　} else if ( Math.abs(X) > Math.abs(Y) && X < -140 ) {
+　　　　} else if ( Math.abs(X) > Math.abs(Y) && X < -110 ) {
           if (footerNav && footerNav[length-1].cur) {
             wrapContent.style.transform = `translateX(0px)`
             return
