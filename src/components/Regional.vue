@@ -118,7 +118,7 @@
                   -webkit-box-orient: vertical;
                   -webkit-line-clamp: 1;
                   overflow: hidden;
-                  padding-right: 68px;
+                  padding-right: 72px;
                 }
                 .item-detail {
                   font-size: 12px;/*no*/
