@@ -1,6 +1,6 @@
 <template>
   <div class="j-wrap" :style="{backgroundImage:'url('+require('../assets/bg2.png')+')'}">
-    <div class="wrap-content" style="transform-origin: center bottom 0px;">
+    <div class="wrap-content">
       <div class="h-wrap">
         <img :src="imageBig" alt="" width="100%">
         <span class="go-back" @click="goBack"></span>
@@ -67,6 +67,9 @@
   </div>
 </template>
 <style lang="scss" scoped>
+  .wrap-content {
+    box-shadow: rgba(45, 44, 46, 0.2) 0px 0px 20px;
+  }
   .j-wrap {
     .h-wrap {
       display: grid;
@@ -327,12 +330,28 @@
       let X, Y
       let seft = this
       let areaWrap = document.querySelector('.area-wrap')
+      let hWrap = document.querySelector('.h-wrap')
+      let wrapContent = document.querySelector('.wrap-content')
       areaWrap.addEventListener('touchstart', function(e) {
         if (e.target.className == 'banner') {
           return
         }
         startX = e.changedTouches[0].pageX
         startY = e.changedTouches[0].pageY
+      })
+      areaWrap.addEventListener('touchmove', function(e) {
+        if (e.target.className == 'banner') {
+          return
+        }
+        moveEndX = e.changedTouches[0].pageX
+        moveEndY = e.changedTouches[0].pageY
+        X = moveEndX - startX
+        Y = moveEndY - startY
+        if ( Math.abs(X) > Math.abs(Y) && X > 0 ) {
+          wrapContent.style.transform = `translateX(${X}px)`
+　　　　 } else if ( Math.abs(X) > Math.abs(Y) && X < 0 ) {
+          wrapContent.style.transform = `translateX(${X}px)`
+　　　   }
       })
       areaWrap.addEventListener('touchend', function(e) {
         if (e.target.className == 'banner') {
@@ -345,11 +364,9 @@
         let footerNav = seft.getFooterNav
         let length = footerNav.length
         let tempIndex = 0
-        let hWrap = document.querySelector('.h-wrap')
-        let areaWrap = document.querySelector('.area-wrap')
-        let wrapContent = document.querySelector('.wrap-content')
         if ( Math.abs(X) > Math.abs(Y) && X > 140 ) {
           if (footerNav && footerNav[0].cur) {
+            wrapContent.style.transform = `translateX(0px)`
             return
           } else {
             for (let i=0; i<footerNav.length; i++) {
@@ -358,18 +375,18 @@
                 break;
               }
             }
-            wrapContent.style.transform = 'rotate(2deg)'
+            // wrapContent.style.transform = 'rotate(2deg)'
             hide(hWrap, 0.1)
             hide(areaWrap, 0.1, function() {
               window.location.href =`#/Regional/Detail?itemId=${footerNav[tempIndex-1].id}`
-              wrapContent.style.transform = 'rotate(0deg)'
               hWrap.style.opacity = 1
               areaWrap.style.opacity = 1
             })
-
+            wrapContent.style.transform = `translateX(0px)`
           }
 　　　　} else if ( Math.abs(X) > Math.abs(Y) && X < -140 ) {
           if (footerNav && footerNav[length-1].cur) {
+            wrapContent.style.transform = `translateX(0px)`
             return
           } else {
             for (let i=0; i<footerNav.length; i++) {
@@ -378,16 +395,18 @@
                 break;
               }
             }
-            wrapContent.style.transform = 'rotate(-2deg)'
+            // wrapContent.style.transform = 'rotate(-2deg)'
             hide(hWrap, 0.1)
             hide(areaWrap, 0.1, function() {
               window.location.href =`#/Regional/Detail?itemId=${footerNav[tempIndex+1].id}`
-              wrapContent.style.transform = 'rotate(0deg)'
               hWrap.style.opacity = 1
               areaWrap.style.opacity = 1
             })
+            wrapContent.style.transform = `translateX(0px)`
           }
-　　　　}
+　　　   } else {
+          wrapContent.style.transform = `translateX(0px)`
+        }
       })
     },
     methods: {
