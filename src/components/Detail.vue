@@ -1,62 +1,64 @@
 <template>
   <div class="j-wrap" :style="{backgroundImage:'url('+require('../assets/bg2.png')+')'}">
-    <div class="h-wrap">
-      <img :src="imageBig" alt="" width="100%">
-      <span class="go-back" @click="goBack"></span>
-    </div>
-    <div class="area-wrap">
-      <div class="area-title">
-        {{title}}
+    <div class="wrap-content">
+      <div class="h-wrap">
+        <img :src="imageBig" alt="" width="100%">
+        <span class="go-back" @click="goBack"></span>
       </div>
-      <div class="area-title-tip">
-        {{areaTitle}}
-      </div>
-      <div style="position:relative;overflow: hidden;width: 100%;" id="imgBox">
-        <img class="area-map" :src="areaMapStr" width="92%" alt="" @click="areaMap"/>
-      </div>
-      <div class="area-str-wrap" v-for="(item, index) in paragraphs">
-        <img src="../assets/common/right.png" alt="">
-        <p class="area-str">
-          {{item}}
-        </p>
-      </div>
-      <div class="area-title-tip">
-        {{traffic && traffic.title}}
-      </div>
-      <div class="transportation">
-        <span class="transportation-str" v-for="(item, index) in (traffic && traffic.paragraphs)"><em>{{item.lable}}：</em>{{item.text}}</span>
-      </div>
-      <div class="area-title-tip">
-        {{industryEnv && industryEnv.title}}
-      </div>
-      <swiper :options="swiperOption" style="margin: 0 auto; margin-left: 15px;margin-right: 15px;">
-        <div class="swiper-slide" v-for="banner in banners">
-          <img v-lazy="banner" width="100%" class="banner">
+      <div class="area-wrap">
+        <div class="area-title">
+          {{title}}
         </div>
-        <div class="swiper-pagination" slot="pagination"></div>
-      </swiper>
-      
-      <div class="area-str-wrap" v-for="(item, index) in (industryEnv && industryEnv.paragraphs)">
-        <img src="../assets/common/right.png" alt="">
-        <p class="area-str">
-          {{item}}
-        </p>
-      </div>
-      <div class="area-title-tip">
-        {{industryColony && industryColony.title}}
-      </div>
-      <div class="area-str-wrap" v-for="(item,index) in (industryColony && industryColony.paragraphs)">
-        <img src="../assets/common/right.png" alt="">
-        <p class="area-str">
-          {{item}}
-        </p>
-      </div>
-      <div class="industry-wrap">
-        <div class="industry-item" v-for="(item, index) in (industryColony && industryColony.sections)">
-          <img class="industry-left" :src="item.icon && item.icon.url" height="57px" width="57px"/>
-          <div class="industry-right">
-            <span class="industry-title">{{item.title}}</span>
-            <span class="industry-str">{{item.paragraphs}}</span>
+        <div class="area-title-tip">
+          {{areaTitle}}
+        </div>
+        <div style="position:relative;overflow: hidden;width: 100%;" id="imgBox">
+          <img class="area-map" :src="areaMapStr" width="92%" alt="" @click="areaMap"/>
+        </div>
+        <div class="area-str-wrap" v-for="(item, index) in paragraphs">
+          <img src="../assets/common/right.png" alt="">
+          <p class="area-str">
+            {{item}}
+          </p>
+        </div>
+        <div class="area-title-tip">
+          {{traffic && traffic.title}}
+        </div>
+        <div class="transportation">
+          <span class="transportation-str" v-for="(item, index) in (traffic && traffic.paragraphs)"><em>{{item.lable}}：</em>{{item.text}}</span>
+        </div>
+        <div class="area-title-tip">
+          {{industryEnv && industryEnv.title}}
+        </div>
+        <swiper :options="swiperOption" style="margin: 0 auto; margin-left: 15px;margin-right: 15px;">
+          <div class="swiper-slide" v-for="banner in banners">
+            <img v-lazy="banner" width="100%" class="banner">
+          </div>
+          <div class="swiper-pagination" slot="pagination"></div>
+        </swiper>
+        
+        <div class="area-str-wrap" v-for="(item, index) in (industryEnv && industryEnv.paragraphs)">
+          <img src="../assets/common/right.png" alt="">
+          <p class="area-str">
+            {{item}}
+          </p>
+        </div>
+        <div class="area-title-tip">
+          {{industryColony && industryColony.title}}
+        </div>
+        <div class="area-str-wrap" v-for="(item,index) in (industryColony && industryColony.paragraphs)">
+          <img src="../assets/common/right.png" alt="">
+          <p class="area-str">
+            {{item}}
+          </p>
+        </div>
+        <div class="industry-wrap">
+          <div class="industry-item" v-for="(item, index) in (industryColony && industryColony.sections)">
+            <img class="industry-left" :src="item.icon && item.icon.url" height="57px" width="57px"/>
+            <div class="industry-right">
+              <span class="industry-title">{{item.title}}</span>
+              <span class="industry-str">{{item.paragraphs}}</span>
+            </div>
           </div>
         </div>
       </div>
@@ -228,7 +230,7 @@
     setTimeout(function(){
       el.style.opacity = String(parseFloat(opacity)-offset)
       parseFloat(el.style.opacity) > 0 ? hide(el,offset,cb) : (cb && cb())
-    }, 17)
+    }, 60)
   }
   export default {
     name: 'Detail',
@@ -343,6 +345,9 @@
         let footerNav = seft.getFooterNav
         let length = footerNav.length
         let tempIndex = 0
+        let hWrap = document.querySelector('.h-wrap')
+        let areaWrap = document.querySelector('.area-wrap')
+        let wrapContent = document.querySelector('.wrap-content')
         if ( Math.abs(X) > Math.abs(Y) && X > 140 ) {
           if (footerNav && footerNav[0].cur) {
             return
@@ -353,11 +358,11 @@
                 break;
               }
             }
-            let hWrap = document.querySelector('.h-wrap')
-            let areaWrap = document.querySelector('.area-wrap')
+            wrapContent.style.transform = 'rotate(5deg)'
             hide(hWrap, 0.1)
             hide(areaWrap, 0.1, function() {
               window.location.href =`#/Regional/Detail?itemId=${footerNav[tempIndex-1].id}`
+              wrapContent.style.transform = 'rotate(0deg)'
               hWrap.style.opacity = 1
               areaWrap.style.opacity = 1
             })
@@ -373,11 +378,11 @@
                 break;
               }
             }
-            let hWrap = document.querySelector('.h-wrap')
-            let areaWrap = document.querySelector('.area-wrap')
+            wrapContent.style.transform = 'rotate(-5deg)'
             hide(hWrap, 0.1)
             hide(areaWrap, 0.1, function() {
               window.location.href =`#/Regional/Detail?itemId=${footerNav[tempIndex+1].id}`
+              wrapContent.style.transform = 'rotate(0deg)'
               hWrap.style.opacity = 1
               areaWrap.style.opacity = 1
             })

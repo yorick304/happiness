@@ -10,8 +10,8 @@ export const Store = {
     return res.data
   },
   async indexData(ops) {
-    let res = await axios.get(ops.url)
-    return res.data
-    // return moke
+    // let res = await axios.get(ops.url)
+    // return res.data
+    return moke
   }
 }
