@@ -358,7 +358,7 @@
                 break;
               }
             }
-            wrapContent.style.transform = 'rotate(5deg)'
+            wrapContent.style.transform = 'rotate(2deg)'
             hide(hWrap, 0.1)
             hide(areaWrap, 0.1, function() {
               window.location.href =`#/Regional/Detail?itemId=${footerNav[tempIndex-1].id}`
@@ -378,7 +378,7 @@
                 break;
               }
             }
-            wrapContent.style.transform = 'rotate(-5deg)'
+            wrapContent.style.transform = 'rotate(-2deg)'
             hide(hWrap, 0.1)
             hide(areaWrap, 0.1, function() {
               window.location.href =`#/Regional/Detail?itemId=${footerNav[tempIndex+1].id}`
