@@ -91,6 +91,7 @@
             float: left;
             overflow: hidden;
             width: 46%;
+            box-sizing: content-box;
             &:nth-child(even) {
               margin-left: 10px;
             }
@@ -117,7 +118,7 @@
                   -webkit-box-orient: vertical;
                   -webkit-line-clamp: 1;
                   overflow: hidden;
-                  padding-right: 42px;
+                  padding-right: 44px;
                 }
                 .item-detail {
                   font-size: 12px;/*no*/
