@@ -375,14 +375,13 @@
                 break;
               }
             }
-            // wrapContent.style.transform = 'rotate(2deg)'
             hide(hWrap, 0.1)
             hide(areaWrap, 0.1, function() {
               window.location.href =`#/Regional/Detail?itemId=${footerNav[tempIndex-1].id}`
               hWrap.style.opacity = 1
               areaWrap.style.opacity = 1
+              wrapContent.style.transform = `translateX(0px)`
             })
-            wrapContent.style.transform = `translateX(0px)`
           }
 　　　　} else if ( Math.abs(X) > Math.abs(Y) && X < -110 ) {
           if (footerNav && footerNav[length-1].cur) {
@@ -395,14 +394,13 @@
                 break;
               }
             }
-            // wrapContent.style.transform = 'rotate(-2deg)'
             hide(hWrap, 0.1)
             hide(areaWrap, 0.1, function() {
               window.location.href =`#/Regional/Detail?itemId=${footerNav[tempIndex+1].id}`
               hWrap.style.opacity = 1
               areaWrap.style.opacity = 1
+              wrapContent.style.transform = `translateX(0px)`
             })
-            wrapContent.style.transform = `translateX(0px)`
           }
 　　　   } else {
           wrapContent.style.transform = `translateX(0px)`
