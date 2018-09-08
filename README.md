@@ -1,6 +1,6 @@
 # happiness
 
-> A Vue.js project
+> A happiness project
 
 ## Build Setup
 
