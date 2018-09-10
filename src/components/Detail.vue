@@ -283,7 +283,7 @@
         return this.detail && this.detail.imageBig && this.detail.imageBig[0] && this.detail.imageBig[0].url
       },
       banners() {
-        return this.industryEnv.map((item) => {
+        return this.industryEnv && this.industryEnv.banners && this.industryEnv.banners.map &&this.industryEnv.banners.map((item) => {
           return item.url
         })
       },
@@ -304,7 +304,7 @@
     },
     data() {
       return {
-        banners: ['//si.geilicdn.com/resource-1cf00000016542c4e2b90a028841_690_400.jpg', '//si.geilicdn.com/resource-1da40000016542c541ce0a02853e_690_400.jpg', '//si.geilicdn.com/resource-1e340000016542c589720a02853e_690_400.jpg', '//si.geilicdn.com/resource-30c60000016542c5ca030a02685e_690_400.jpg'],
+        // banners: ['//si.geilicdn.com/resource-1cf00000016542c4e2b90a028841_690_400.jpg', '//si.geilicdn.com/resource-1da40000016542c541ce0a02853e_690_400.jpg', '//si.geilicdn.com/resource-1e340000016542c589720a02853e_690_400.jpg', '//si.geilicdn.com/resource-30c60000016542c5ca030a02685e_690_400.jpg'],
         swiperOption: {
           spaceBetween: 30,
             autoplay: {
