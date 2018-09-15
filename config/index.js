@@ -1,12 +1,14 @@
 'use strict'
 // Template version: 1.3.1
 // see http://vuejs-templates.github.io/webpack for documentation.
-
 const path = require('path')
-
+let buildType = '' 
+if (process.env.NODE_ENV === 'production') {
+    let argv = process.argv
+    buildType = argv[2] ? argv[2].replace(/[^a-z]+/ig,"") : ''
+}
 module.exports = {
   dev: {
-
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
@@ -19,8 +21,6 @@ module.exports = {
     errorOverlay: true,
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
-
-    
     /**
      * Source Maps
      */
@@ -43,7 +43,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/prepare/happiness/dist/',
+    assetsPublicPath: (buildType == 'pre') ? '/prepare/happiness/dist/' : '/happiness/dist/',
 
     /**
      * Source Maps
