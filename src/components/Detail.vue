@@ -66,7 +66,7 @@
         </div>
         <div v-for="(live, index) in (liveFacility && liveFacility.paragraphs)">
           <div class="live-ul">
-            <em>{{live.lable}}：</em>{{live.text}}
+            <em>{{live.lable}}：</em><em>{{live.text}}</em>
           </div>
         </div>
         <div class="area-title-tip">
@@ -74,7 +74,7 @@
         </div>
         <div v-for="(mating, index) in (liveMating && liveMating.paragraphs)">
           <div class="live-ul">
-            <em>{{mating.lable}}：</em>{{mating.text}}
+            <em style="flex: 1">{{mating.lable}}：</em><em style="flex: 7">{{mating.text}}</em>
           </div>
         </div>
       </div>
@@ -85,6 +85,7 @@
 <style lang="scss" scoped>
   .wrap-content {
     box-shadow: rgba(45, 44, 46, 0.2) 0px 0px 20px;
+    padding-bottom: 140px;
   }
   .j-wrap {
     .h-wrap {
@@ -115,7 +116,7 @@
     .area-wrap {
       .live-ul {
         background-color: #ebebeb;
-        display: block;
+        display: flex;
         color: #28292b;
         padding: 26px;
         font-size: 12px;/*no*/
