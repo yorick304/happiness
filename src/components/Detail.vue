@@ -64,14 +64,18 @@
         <div class="area-title-tip">
           {{liveFacility && liveFacility.title}}
         </div>
-        <div class="live-ul" v-for="(live, index) in (liveFacility && liveFacility.paragraphs)">
-          <em>{{live.lable}}：</em>{{live.text}}
+        <div v-for="(live, index) in (liveFacility && liveFacility.paragraphs)">
+          <div class="live-ul">
+            <em>{{live.lable}}：</em>{{live.text}}
+          </div>
         </div>
         <div class="area-title-tip">
           {{liveMating && liveMating.title}}
         </div>
-        <div class="live-ul" v-for="(mating, index) in (liveMating && liveMating.paragraphs)">
-          <em>{{mating.lable}}：</em>{{mating.text}}
+        <div v-for="(mating, index) in (liveMating && liveMating.paragraphs)">
+          <div class="live-ul">
+            <em>{{mating.lable}}：</em>{{mating.text}}
+          </div>
         </div>
       </div>
     </div>
@@ -116,6 +120,8 @@
         padding: 26px;
         font-size: 12px;/*no*/
         margin-top: 14px;
+        margin-left: 30px;
+        margin-right: 30px;
         em {
           font-style: normal;
         }
@@ -179,7 +185,7 @@
         }
       }
       .industry-wrap {
-        padding: 70px 30px 140px;
+        padding: 70px 30px 0 30px;
         .industry-item {
           display: flex;
           .industry-left {
