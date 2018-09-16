@@ -126,6 +126,9 @@
         em {
           font-style: normal;
         }
+        &:first-child {
+          margin-top: 14px;
+        }
         &:not(:first-child) {
           margin-top: 14px;
         }
