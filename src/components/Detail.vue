@@ -61,6 +61,18 @@
             </div>
           </div>
         </div>
+        <div class="area-title-tip">
+          {{liveFacility && liveFacility.title}}
+        </div>
+        <div class="live-ul" v-for="(live, index) in (liveFacility && liveFacility.paragraphs)">
+          <em>{{live.lable}}：</em>{{live.text}}
+        </div>
+        <div class="area-title-tip">
+          {{liveMating && liveMating.title}}
+        </div>
+        <div class="live-ul" v-for="(mating, index) in (liveMating && liveMating.paragraphs)">
+          <em>{{mating.lable}}：</em>{{mating.text}}
+        </div>
       </div>
     </div>
     <FooterNav :itemId="itemId"/>
@@ -97,6 +109,20 @@
       }
     }
     .area-wrap {
+      .live-ul {
+        background-color: #ebebeb;
+        display: block;
+        color: #28292b;
+        padding: 26px;
+        font-size: 12px;/*no*/
+        margin-top: 14px;
+        em {
+          font-style: normal;
+        }
+        &:not(:first-child) {
+          margin-top: 14px;
+        }
+      }
       .area-title {
         font-size: 25px;/*no*/
         color: #333333;
@@ -278,6 +304,12 @@
       },
       industryEnv() {
         return this.detail && this.detail.industryEnv
+      },
+      liveFacility() {
+        return this.detail && this.detail.liveFacility
+      },
+      liveMating() {
+        return this.detail && this.detail.liveMating
       },
       imageBig() {
         return this.detail && this.detail.imageBig && this.detail.imageBig[0] && this.detail.imageBig[0].url
