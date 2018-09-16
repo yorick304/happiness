@@ -66,7 +66,7 @@
         </div>
         <div v-for="(live, index) in (liveFacility && liveFacility.paragraphs)">
           <div class="live-ul">
-            <em>{{live.lable}}：</em><em>{{live.text}}</em>
+            <em style="flex: 1">{{live.lable}}：</em><em style="flex: 7">{{live.text}}</em>
           </div>
         </div>
         <div class="area-title-tip">
