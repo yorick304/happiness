@@ -66,7 +66,7 @@
         </div>
         <div v-for="(live, index) in (liveFacility && liveFacility.paragraphs)">
           <div class="live-ul">
-            <em style="flex: inherit;">{{live.lable}}：</em><em style="flex: 7;">{{live.text}}</em>
+            <em class="label-title">{{live.lable}}：</em><em style="flex: 7;">{{live.text}}</em>
           </div>
         </div>
         <div class="area-title-tip">
@@ -74,7 +74,7 @@
         </div>
         <div v-for="(mating, index) in (liveMating && liveMating.paragraphs)">
           <div class="live-ul">
-            <em style="flex: inherit;">{{mating.lable}}：</em><em style="flex: 7;">{{mating.text}}</em>
+            <em class="label-title">{{mating.lable}}：</em><em style="flex: 7;">{{mating.text}}</em>
           </div>
         </div>
       </div>
@@ -123,11 +123,15 @@
         margin-top: 14px;
         margin-left: 30px;
         margin-right: 30px;
+        .label-title {
+          font-weight: bold;
+          flex: inherit;
+        }
         em {
           font-style: normal;
         }
         &:first-child {
-          margin-top: 14px;
+          margin-top: 28px;
         }
         &:not(:first-child) {
           margin-top: 14px;
